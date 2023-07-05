@@ -8,8 +8,8 @@ export default {
     template: `
   <section class="mail-list">
     <ul>
-        <li v-for="mail in mails" :key="mail.id" @click="markAsRead(mail)">
-            <MailPreview :mail="mail"/>
+        <li v-for="mail in mails" :key="mail.id"  >
+            <MailPreview :mail="mail"  @click="onUpdate(mail.id)"/>
             <!-- <button @click="onRemoveBook(book.id)" class="close">x</button> -->
         </li>
     </ul>
@@ -20,17 +20,13 @@ export default {
         return {}
     },
     methods: {
-        markAsRead(mail) {
-            mail.isRead = true
-            emailService.save(mail)
-                .then(mail => this.mail = mail)
-                .catch(error => {
-                    console.error(error)
-                })
-        }
         // onRemoveBook(bookId) {
         //     this.$emit('remove', bookId)
         // }
+        onUpdate(mailId) {
+            this.$emit('update', mailId)
+            console.log(mailId)
+        }
     },
     computed: {},
     components: {

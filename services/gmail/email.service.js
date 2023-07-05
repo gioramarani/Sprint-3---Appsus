@@ -23,8 +23,8 @@ const gEmail = [{
     to: 'user@appsus.com'
 },
 {
-    id: 'e101',
-    subject: 'Miss you!',
+    id: 'e102',
+    subject: 'Hate you!',
     body: 'Would love to catch up sometimes',
     isRead: false,
     sentAt: 1551133930594,
@@ -33,8 +33,8 @@ const gEmail = [{
     to: 'user@appsus.com'
 },
 {
-    id: 'e101',
-    subject: 'Miss you!',
+    id: 'e103',
+    subject: 'Love you!',
     body: 'Would love to catch up sometimes',
     isRead: false,
     sentAt: 1551133930594,

@@ -8,6 +8,7 @@ export default {
           <section class="mail-index">
           <MailList 
             :mails="mails"
+            @update="update"
         />
         </section>
         `,
@@ -20,7 +21,16 @@ export default {
       mails: [],
     }
   },
-  methods: {},
+  methods: {
+    update(mailId) {
+      const mail = this.mails.find(mail => mail.id === mailId)
+      mail.isRead = true
+      emailService.save(mail)
+        .then(mail => this.mail = mail)
+      console.log(mail)
+
+    }
+  },
   computed: {},
   components: {
     MailList,
