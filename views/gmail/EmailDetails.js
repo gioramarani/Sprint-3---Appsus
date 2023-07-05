@@ -3,10 +3,10 @@ import { emailService } from "../../services/gmail/email.service.js"
 export default {
     template: `
         <section class="mail-details" v-if="mail">
-            <!-- <h2>{{ mail.title }}</h2>
-            <h3>{{ mail.body }}</h3> -->
-            <pre>{{mail}}</pre>
-
+            <h2>{{ mail.subject }} </h2>
+            <h3>{{ mail.from }} </h3>
+            <h4>{{ mail.body }}</h4>
+            <button @click="returnToList">Return</button>
             <!-- <RouterLink :to="'/car/' + car.nextCarId">Next Car</RouterLink> |
             <RouterLink :to="'/car/' + car.prevCarId">Prev Car</RouterLink> | -->
             
@@ -34,6 +34,10 @@ export default {
                     this.$router.push('/mail')
                 })
         },
+        returnToList() {
+            this.$router.push('/email')
+            this.showDetails = false
+        }
     },
     watch: {
         mailId() {
