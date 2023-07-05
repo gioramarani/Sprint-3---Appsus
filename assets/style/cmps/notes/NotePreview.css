@@ -1,0 +1,15 @@
+.notes {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+form {
+    /* margin-inline-start: 10px; */
+    margin: 20px
+}
+
+.note {
+    padding: 5px;
+
+}

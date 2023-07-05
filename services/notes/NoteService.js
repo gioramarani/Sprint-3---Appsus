@@ -61,6 +61,7 @@ export const NoteService = {
     remove,
     save,
     getEmptyNote,
+    crateNote
 }
 
 // function getNotesFromService() {
@@ -115,6 +116,19 @@ function save(note) {
 
 function getEmptyNote(id = utilService.makeId(), type = '', info = '') {
     return { id, type, info }
+}
+
+function crateNote(type, txt) {
+    var newId = utilService.makeId()
+    const note = {
+        id: newId,
+        type: type,
+        info: {
+            txt: txt
+        }
+    }
+    gNotes.push(note)
+    return note
 }
 
 

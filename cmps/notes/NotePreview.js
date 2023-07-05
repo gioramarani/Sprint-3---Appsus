@@ -11,8 +11,14 @@ export default {
   template: `
             <section class="note-preview">
                 <!-- <button @click="$emit('create')">Add Note</button> -->
-            <section v-for="note in notes" :key="note.id">
-               <RouterLink to="">Add Note</RouterLink>
+              <form  @submit="onCreate" >
+                <input type="text"
+                placeholder="Take a note..." v-model="txt"/>
+                <button>Make Note</button>
+                </form>
+            <section class="notes">
+            <section class="note" v-for="note in notes" :key="note.id">
+               <!-- <RouterLink to="">Add Note</RouterLink> -->
 
                 <component 
                 :is = "note.type"
@@ -20,14 +26,21 @@ export default {
                 />
             </section>
             </section>
+            </section>
 
         `,
 created() {},
   data() {
-    return {}
+    return {
+      txt: ''
+    }
   },
   methods: {
-    
+    onCreate(){
+      this.$emit('create', this.txt)
+      console.log(this.txt)
+
+    }
   },
   computed: {},
 components:{
