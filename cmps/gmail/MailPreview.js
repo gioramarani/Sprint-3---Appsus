@@ -1,3 +1,5 @@
+import MailSideBar from "./MailSideBar.js"
+
 export default {
     name: 'MailPreview',
     props: ['mail'],
@@ -11,6 +13,7 @@ export default {
             </span>
             <h4>{{formatDate}}</h4>
         </article>
+        
     `,
     computed: {
         formatDate() {
@@ -22,6 +25,9 @@ export default {
         }
     },
     methods: {
+    },
+    components: {
+        MailSideBar,
     }
 
 

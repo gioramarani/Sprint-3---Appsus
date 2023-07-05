@@ -1,11 +1,13 @@
 import { emailService } from "../../services/gmail/email.service.js"
 import MailList from "../../cmps/gmail/MailList.js"
+import MailSideBar from "../../cmps/gmail/MailSideBar.js"
 
 export default {
   name: 'EmailIndex',
   props: [],
   template: `
           <section class="mail-index">
+          <MailSideBar/>
           <MailList 
             :mails="mails"
             @update="update"
@@ -34,5 +36,6 @@ export default {
   computed: {},
   components: {
     MailList,
+    MailSideBar
   },
 }

@@ -13,7 +13,6 @@ const options = {
             <section class="main-content">
                 <RouterView />
             </section>
-            <AppFooter />
             <UserMsg />
         </section>
     `,

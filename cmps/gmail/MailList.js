@@ -1,3 +1,4 @@
+import MailSideBar from './MailSideBar.js'
 import MailPreview from './MailPreview.js'
 import { emailService } from '../../services/gmail/email.service.js'
 
@@ -11,6 +12,7 @@ export default {
         <li v-for="mail in mails" :key="mail.id"  >
             <MailPreview :mail="mail"  @click="onUpdate(mail.id)"/>
             <!-- <button @click="onRemoveBook(book.id)" class="close">x</button> -->
+
         </li>
     </ul>
   </section>
@@ -31,5 +33,6 @@ export default {
     computed: {},
     components: {
         MailPreview,
+        MailSideBar,
     },
 }
