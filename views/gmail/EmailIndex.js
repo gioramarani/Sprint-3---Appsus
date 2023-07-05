@@ -8,10 +8,8 @@ export default {
   template: `
           <section class="mail-index">
           <MailSideBar/>
-          <MailList 
-            :mails="mails"
-            @update="update"
-        />
+          <MailList :mails="mails" @update="update" v-if="$route.name !== 'EmailDetails'" />
+    <router-view v-else />
         </section>
         `,
   created() {
@@ -29,8 +27,7 @@ export default {
       mail.isRead = true
       emailService.save(mail)
         .then(mail => this.mail = mail)
-      console.log(mail)
-
+      this.$router.push({ name: 'EmailDetails', params: { mailId } })
     }
   },
   computed: {},
