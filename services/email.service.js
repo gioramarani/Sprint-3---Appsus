@@ -86,7 +86,7 @@ function _createMails() {
     }
 }
 
-function _createMails(title, subject) {
-    const book = getEmptyBook(title, amount)
+function _createMail(subject) {
+    const book = getEmptyBook(subject)
     return book
 }

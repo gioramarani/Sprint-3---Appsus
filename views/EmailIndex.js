@@ -1,13 +1,22 @@
+import { emailService } from "../services/email.service.js"
+
 export default {
-  name:'',
+  name: 'EmailIndex',
   props: [],
   template: `
+          <section class="mail-index">
+        </section>
         `,
-created() {},
+  created() {
+    emailService.query()
+      .then(mails => this.mails = mails)
+  },
   data() {
-    return {}
+    return {
+      mails: [],
+    }
   },
   methods: {},
   computed: {},
-components:{},
+  components: {},
 }
