@@ -114,7 +114,7 @@ function save(note) {
     }
 }
 
-function getEmptyNote(id = '', type = '' , info = { txt: ''}) {
+function getEmptyNote(id = '', type = '' , info = {}) {
     return { id, type, info }
 }
 

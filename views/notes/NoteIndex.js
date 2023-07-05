@@ -15,7 +15,7 @@ export default {
             />
 
             <NoteList
-            :notes="notes"
+            :notes="getNotes"
             
             />
             
@@ -34,10 +34,10 @@ export default {
         }
     },
     methods: {
-        saveNewNote(note, type, txt) {
-            note.info.txt = txt
-            note.type = type
-            console.log(note)
+        saveNewNote(note) {
+            // note.info.txt = txt
+            // note.type = type
+            // console.log(note)
             NoteService.save(note)
                 .then(savedNote => {
                 this.notes.push(savedNote)
