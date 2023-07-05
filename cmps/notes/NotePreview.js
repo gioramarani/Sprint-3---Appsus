@@ -9,8 +9,8 @@ export default {
   template: `
                 <section>
                 <component 
-                    :is = "note.type"
-                    :note = "note"
+                    :is="note.type"
+                    :note="note"
                 />
                 </section>
         `,
