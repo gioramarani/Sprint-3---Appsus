@@ -29,6 +29,18 @@ const gNotes = [
         }
     },
     {
+        id: 'n102',
+        type: 'NoteVideo',
+        isPinned: false,
+        info: {
+            url: 'http://some-img/me',
+            title: 'Bobi and Me'
+        },
+        style: {
+            backgroundColor: '#00d'
+        }
+    },
+    {
         id: 'n103',
         type: 'NoteTodos',
         isPinned: false,
@@ -50,8 +62,12 @@ export const NoteService = {
     save,
 }
 
+// function getNotesFromService() {
+//     return gNotes
+// }
+
 function getNotesFromService() {
-    return gNotes
+    return Promise.resolve(gNotes)
 }
 
 function query() {

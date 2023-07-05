@@ -8,17 +8,23 @@ export default {
   template: `
         <section class="note-index">
 
-            <NotePreview/>
-
-            :notes=""
+            <NotePreview
+            
+            :notes="notes"
+            />
+            
         </section>
         `,
 created() {
         // this.notes = NoteService.getNotesFromService()
         // console.log(this.notes)
 
-        NoteService.query()
-            .then(notes => this.notes = notes)
+        // NoteService.query()
+        //     .then(notes => this.notes = notes)
+        //     console.log({...this.notes})
+
+        NoteService.getNotesFromService()
+             .then(notes => this.notes = notes)
             console.log({...this.notes})
 
 },
