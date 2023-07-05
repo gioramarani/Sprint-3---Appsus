@@ -4,7 +4,8 @@ export default {
   name:'NoteAdd',
   props: [],
   template: `
-            <form  @submit="onCreate" >
+            <section class="note-add">
+            <form @submit.prevent="onCreate" >
                 <input type="text"
                 placeholder="Take a note..." v-model="txt"/> <br/>
                 <!-- <select v-model="type">Select type
@@ -17,6 +18,10 @@ export default {
                 </select>
                 <button>Make Note</button>
                 </form>
+                <button @click="toggleImg">Make Img</button>
+                <button @click="toggleVideo">Make Video</button>
+                <button @click="toggleTodo">Make Todo-List</button>
+                </section>
         `,
 created() {},
   data() {
@@ -24,9 +29,21 @@ created() {},
       newNote: NoteService.getEmptyNote(),
       txt: '',
       type: '',
+      isImg: false,
+      isVideo: false,
+      isTodo: false
     }
   },
   methods: {
+    toggleTodo(){
+      this.isTodo= true
+    },
+    toggleImg() {
+      this.isImg= true
+    },
+    toggleVideo() {
+      this.isVideo= true
+    },
     onCreate(){
       console.log(this.newNote)
       // if(this.txt === 'TxtNote') {
@@ -44,21 +61,49 @@ created() {},
       //   this.newNote.type = this.type
 
       // }
+      if(this.isImg){
+        this.newNote = {
+          info: {
+            title: this.txt
+          },
+          type: 'NoteImg'
+          }
+      } else if(this.isVideo){
+        this.newNote = {
+          info: {
+            title: this.txt
+          },
+          type: 'NoteVideo'
+          }
+      } else if(this.isTodo){
+        this.newNote = {
+          info: {
+            title: this.txt
+          },
+          type: 'NoteTodos'
+          }
+      } else {
       this.newNote= {
         info: {
           txt: this.txt
         },
         type: 'NoteTxt'
         }
+      }
       // this.$emit('create', this.newNote, this.type ,this.txt)
       this.$emit('create', this.newNote)
       console.log(this.newNote)
       this.txt = ''
       this.newNote = {}
       this.type= ''
+      this.isImg= false
+      this.isVideo= false
+      this.isTodo= false
+
       console.log(this.newNote)
 
-    }
+    },
+    
   },
   computed: {},
 components:{},

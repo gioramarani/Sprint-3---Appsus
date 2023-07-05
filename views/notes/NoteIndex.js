@@ -15,19 +15,26 @@ export default {
             />
 
             <NoteList
-            :notes="getNotes"
+            :notes="notes"
             
             />
             
         </section>
         `,
     created() {
-        NoteService.getNotesFromService()
-            .then(notes => { 
-                this.notes = notes
-                 console.log(this.notes)})
 
-    },
+        NoteService.getNotesFromService()
+            .then(notes => {
+            this.notes = notes
+            if(!this.notes || !this.notes.length){
+            NoteService.query()
+            .then(notes => {
+                this.notes = notes
+           })}})
+               
+              
+            }
+        ,
     data() {
         return {
             notes: [],
@@ -40,14 +47,15 @@ export default {
             // console.log(note)
             NoteService.save(note)
                 .then(savedNote => {
-                this.notes.push(savedNote)
-                console.log(this.notes)})
-                // showSuccessMsg('Note saved!')
-        //    NoteService.crateNote('NoteTxt', txt)
-        //         .then(notes => this.notes = notes)
-        //         console.log(this.notes)
+                    this.notes.push(savedNote)
+                    console.log(this.notes)
+                })
+            // showSuccessMsg('Note saved!')
+            //    NoteService.crateNote('NoteTxt', txt)
+            //         .then(notes => this.notes = notes)
+            //         console.log(this.notes)
         },
-        
+
     },
     computed: {
         getNotes() {
