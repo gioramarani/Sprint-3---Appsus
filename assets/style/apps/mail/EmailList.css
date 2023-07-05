@@ -1,0 +1,26 @@
+.mail-index ul {
+  display: flex;
+  flex-direction: column;
+}
+
+.mail-index .mail-preview {
+  display: flex;
+  padding: 0 1rem;
+  align-items: end;
+  justify-content: space-between;
+  margin: 0;
+}
+
+.mail-index .mail-preview h4 {
+  margin-block: 0.8em;
+}
+
+.mail-preview.read {
+  background-color: lightgrey;
+}
+
+.mail-index .mail-preview span {
+  display: flex;
+  flex-basis: 20rem;
+  justify-content: space-evenly;
+}
