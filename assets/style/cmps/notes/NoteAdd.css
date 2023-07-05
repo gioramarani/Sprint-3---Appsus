@@ -9,14 +9,14 @@
     /* margin-inline-start: auto; */
 }
 
-.features {
+.note-add .features {
     display: flex;
     gap: 10px;
     margin-inline-start: 50vw;
     translate: -15%;
 }
 
-span:hover {
+.note-add span:hover {
     scale: 1.1;
     cursor: pointer;
 }
