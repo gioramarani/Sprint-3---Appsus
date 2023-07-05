@@ -2,15 +2,25 @@ export default {
   name:'NoteAdd',
   props: [],
   template: `
-            <form action="">
-                
-            </form>
+            <form  @submit="onCreate" >
+                <input type="text"
+                placeholder="Take a note..." v-model="txt"/>
+                <button>Make Note</button>
+                </form>
         `,
 created() {},
   data() {
-    return {}
+    return {
+      txt: '',
+    }
   },
-  methods: {},
+  methods: {
+    onCreate(){
+      this.$emit('create', this.txt)
+      console.log(this.txt)
+
+    }
+  },
   computed: {},
 components:{},
 }

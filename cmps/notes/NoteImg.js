@@ -4,8 +4,8 @@ export default {
     template: `
 
             <section class="note-img">
-                <h1>{{ note.type }}</h1>
-                <h1>{{ note.info.title }}</h1>
+                <h1>Type: {{ note.type }}</h1>
+                <h1>Title: {{ note.info.title }}</h1>
             </section>
         `,
     created() { },
