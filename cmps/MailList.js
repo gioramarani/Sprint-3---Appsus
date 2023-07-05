@@ -2,13 +2,13 @@ import MailPreview from './MailPreview.js'
 
 
 export default {
-    name: '',
+    name: 'MailList',
     props: ['mails'],
     template: `
   <section className="mail-list">
     <ul>
         <li v-for="mail in mails" :key="mail.id">
-            <BookPreview :mail="mail"/>
+            <MailPreview :mail="mail"/>
             <!-- <button @click="onRemoveBook(book.id)" class="close">x</button> -->
         </li>
     </ul>
@@ -25,6 +25,6 @@ export default {
     },
     computed: {},
     components: {
-        BookPreview,
+        MailPreview,
     },
 }

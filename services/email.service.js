@@ -8,10 +8,31 @@ export const emailService = {
     get,
     remove,
     save,
-
+    getEmptyMail
+    // getMailFromService
 }
 
-const email = {
+const gEmail = [{
+    id: 'e101',
+    subject: 'Miss you!',
+    body: 'Would love to catch up sometimes',
+    isRead: false,
+    sentAt: 1551133930594,
+    removedAt: null,
+    from: 'momo@momo.com',
+    to: 'user@appsus.com'
+},
+{
+    id: 'e101',
+    subject: 'Miss you!',
+    body: 'Would love to catch up sometimes',
+    isRead: false,
+    sentAt: 1551133930594,
+    removedAt: null,
+    from: 'momo@momo.com',
+    to: 'user@appsus.com'
+},
+{
     id: 'e101',
     subject: 'Miss you!',
     body: 'Would love to catch up sometimes',
@@ -21,6 +42,9 @@ const email = {
     from: 'momo@momo.com',
     to: 'user@appsus.com'
 }
+]
+
+_createMails()
 
 const loggedinUser = {
     email: 'gaash@gmail.com',
@@ -51,9 +75,9 @@ function save(mail) {
     }
 }
 
-function getEmptyMail(id = '', subject = '') {
-    return { id, subject }
-}
+// function getMailFromService() {
+//     return Promise.resolve(email)
+// }
 
 // function addReview(bookId, review){
 //     return get(bookId).then(book => {
@@ -73,20 +97,24 @@ function getEmptyMail(id = '', subject = '') {
 //         })
 // }
 
+function getEmptyMail(id = '', subject = '') {
+    return { id, subject }
+}
+
 function _createMails() {
 
     let mails = utilService.loadFromStorage(MAIL_KEY)
     if (!mails || !mails.length) {
-        // books = []
-        // books.push(_createBook('Harry Poter', 300))
+        mails = []
+        mails.push(_createMail(gEmail.id, gEmail.subject))
         // books.push(_createBook('Great Jiants', 720))
         // books.push(_createBook('Looloo Land', 100))
-        utilService.saveToStorage(MAIL_KEY, email)
+        utilService.saveToStorage(MAIL_KEY, mails)
         console.log(mails)
     }
 }
 
-function _createMail(subject) {
-    const book = getEmptyBook(subject)
-    return book
+function _createMail(id, subject) {
+    const mail = getEmptyMail(id, subject)
+    return mail
 }

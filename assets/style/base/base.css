@@ -3,12 +3,15 @@
 }
 
 html {
-  
 }
 
 body {
   margin: 0;
   color: var(--clr4);
+}
+
+li {
+  list-style-type: none;
 }
 
 h1,
@@ -18,7 +21,7 @@ h4,
 h5,
 h6 {
   margin: 0 0 1em;
-  font-family: 'Edu VIC WA NT Beginner', cursive;
+  font-family: "Edu VIC WA NT Beginner", cursive;
 }
 
 p {
@@ -30,14 +33,12 @@ a {
   color: unset;
 }
 
-
-
 /* Dont stretch my Media */
 img,
 embed,
 video,
 object {
-  max-width: 100%
+  max-width: 100%;
 }
 
 /* tap targets: */
@@ -49,6 +50,5 @@ button {
 
 /* Simple and useful CSS Debugging Technique */
 .debug * {
-  outline: 1px solid gold
+  outline: 1px solid gold;
 }
-
