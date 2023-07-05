@@ -1,5 +1,5 @@
-import { emailService } from "../services/email.service.js"
-import MailList from "../cmps/MailList.js"
+import { emailService } from "../../services/gmail/email.service.js"
+import MailList from "../../cmps/gmail/MailList.js"
 
 export default {
   name: 'EmailIndex',

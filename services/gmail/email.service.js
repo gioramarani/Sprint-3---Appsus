@@ -1,5 +1,5 @@
-import { utilService } from './util.service.js'
-import { storageService } from './async-storage.service.js'
+import { utilService } from '../util.service.js'
+import { storageService } from '../async-storage.service.js'
 
 const MAIL_KEY = 'mailDB'
 
@@ -105,11 +105,7 @@ function _createMails() {
 
     let mails = utilService.loadFromStorage(MAIL_KEY)
     if (!mails || !mails.length) {
-        mails = []
-        mails.push(_createMail(gEmail.id, gEmail.subject))
-        // books.push(_createBook('Great Jiants', 720))
-        // books.push(_createBook('Looloo Land', 100))
-        utilService.saveToStorage(MAIL_KEY, mails)
+        utilService.saveToStorage(MAIL_KEY, gEmail)
         console.log(mails)
     }
 }
