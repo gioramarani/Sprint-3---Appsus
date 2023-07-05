@@ -4,7 +4,7 @@ export default {
   template: `
 
             <section>
-                <pre></pre>
+                <pre>{{ note }}</pre>
                 <h1>{{ note.type }}</h1>
             </section>
         `,

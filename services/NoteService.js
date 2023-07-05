@@ -60,6 +60,7 @@ export const NoteService = {
     get,
     remove,
     save,
+    getEmptyNote,
 }
 
 // function getNotesFromService() {
@@ -112,7 +113,7 @@ function save(note) {
     }
 }
 
-function getEmptyNote(id = '', type = '', info = '') {
+function getEmptyNote(id = utilService.makeId(), type = '', info = '') {
     return { id, type, info }
 }
 
