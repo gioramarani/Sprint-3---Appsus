@@ -1,7 +1,26 @@
-.note-add {
-    
+.note-add form {
+    display: flex;
+    margin-inline: 50vw;
+    translate: -50%;
+    border: 1px solid black;
+    margin-top: 20px;
+    margin-bottom: 2px;
+    position: relative;
+    /* margin-inline-start: auto; */
 }
 
-button:hover {
-    scale: 1.1;
+.features {
+    display: flex;
+    gap: 10px;
+    margin-inline-start: 50vw;
+    translate: -15%;
 }
+
+span:hover {
+    scale: 1.1;
+    cursor: pointer;
+}
+
+/* button {
+   position: absolute;
+} */

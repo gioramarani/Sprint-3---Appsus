@@ -16,12 +16,15 @@ export default {
                   <!-- <option value="Todos">To-Do's</option>
                   <option value="Video">Video</option> -->
                 </select>
-                <button>Make Note</button>
-                </form>
-                <button @click="toggleImg">Make Img</button>
-                <button @click="toggleVideo">Make Video</button>
-                <button @click="toggleTodo">Make Todo-List</button>
-                </section>
+                
+                <button class="material-symbols-outlined">edit</button>
+              </form>
+              <section class="features">
+                <span class="material-symbols-outlined" @click="toggleImg">image</span>
+                <span class="material-symbols-outlined" @click="toggleVideo">play_circle</span>
+                <span class="material-symbols-outlined" @click="toggleTodo">edit_note</span>
+                </section>  
+              </section>
         `,
 created() {},
   data() {
