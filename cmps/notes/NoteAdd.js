@@ -18,11 +18,13 @@ export default {
                 </select>
                 
                 <button class="material-symbols-outlined">edit</button>
-                </form>
+              </form>
+              <section class="features">
                 <span class="material-symbols-outlined" @click="toggleImg">image</span>
                 <span class="material-symbols-outlined" @click="toggleVideo">play_circle</span>
                 <span class="material-symbols-outlined" @click="toggleTodo">edit_note</span>
-                </section>
+                </section>  
+              </section>
         `,
 created() {},
   data() {
