@@ -1,5 +1,7 @@
-.note-add {
-    
+.note-add input {
+    display: flex;
+    margin-inline: auto;
+    /* margin-inline-start: auto; */
 }
 
 button:hover {
