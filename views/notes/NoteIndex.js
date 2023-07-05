@@ -1,29 +1,25 @@
 import { NoteService } from '../../services/notes/NoteService.js'
 
-import NotePreview from '../../cmps/notes/NotePreview.js'
+import NoteList from '../../cmps/notes/NoteList.js'
+import NoteAdd from '../../cmps/notes/NoteAdd.js'
 
 export default {
     name: 'NoteIndex',
     props: [],
     template: `
         <section class="note-index">
-
-            <NotePreview
-            
-            :notes="notes"
+            <NoteAdd
             @create="createNewNote"
+            />
+
+            <NoteList
+            :notes="getNotes"
+            
             />
             
         </section>
         `,
     created() {
-        // this.notes = NoteService.getNotesFromService()
-        // console.log(this.notes)
-
-        // NoteService.query()
-        //     .then(notes => this.notes = notes)
-        //     console.log({...this.notes})
-
         NoteService.getNotesFromService()
             .then(notes => { 
                 this.notes = notes
@@ -32,7 +28,7 @@ export default {
     },
     data() {
         return {
-            notes: []
+            notes: [],
         }
     },
     methods: {
@@ -43,9 +39,13 @@ export default {
             return newNote
         }
     },
-    computed: {},
+    computed: {
+            getNotes() {
+                return this.notes
+            }
+    },
     components: {
-        NotePreview,
-
+        NoteList,
+        NoteAdd,
     },
 }
