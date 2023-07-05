@@ -1,4 +1,4 @@
-.mail-index ul {
+.mail-list .mail- .mail-list .mail-index ul {
   display: flex;
   flex-direction: column;
 }
@@ -23,4 +23,9 @@
   display: flex;
   flex-basis: 20rem;
   justify-content: space-evenly;
+}
+
+.mail-preview {
+  display: grid;
+  grid-template-areas: side main;
 }
