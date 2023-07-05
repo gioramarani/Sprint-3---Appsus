@@ -1,6 +1,6 @@
-import { NoteService } from '../services/NoteService.js'
+import { NoteService } from '../../services/notes/NoteService.js'
 
-import NotePreview from '../cmps/NotePreview.js'
+import NotePreview from '../../cmps/notes/NotePreview.js'
 
 export default {
     name: 'NoteIndex',

@@ -1,4 +1,4 @@
-import { NoteService } from '../services/NoteService.js'
+import { NoteService } from '../../services/notes/NoteService.js'
 
 import NoteTxt from './NoteTxt.js'
 import NoteImg from './NoteImg.js'
