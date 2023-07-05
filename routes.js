@@ -18,6 +18,10 @@ const routerOptions = {
 			path: '/about',
 			component: AboutUs,
 		},
+		{
+			path: '/about',
+			component: AboutUs,
+		},
 	],
 }
 
