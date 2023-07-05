@@ -8,8 +8,6 @@ export default {
                 <h1>{{ note.type }}</h1>
                 <!-- <h1>{{ note.id }}</h1> -->
                 <h1>{{ note.info.txt }}</h1>
-
-                <button></button>
             </section>
         `,
 created() {},

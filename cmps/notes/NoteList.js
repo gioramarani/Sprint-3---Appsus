@@ -12,7 +12,10 @@ export default {
                     <NotePreview 
                     :note="note"
                     />
-                        
+                    <span class="material-symbols-outlined" 
+                    @click="onRemoveNote(note.id)">delete</span> 
+                    <span class="material-symbols-outlined"
+                    @click="onEditNote(note.id)">edit</span>
                     </li>
                 </ul>
             </section>

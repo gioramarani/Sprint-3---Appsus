@@ -17,7 +17,7 @@ export default {
                   <option value="Video">Video</option> -->
                 </select>
                 
-                <button class="material-symbols-outlined">edit</button>
+                <button class="material-symbols-outlined">check_box</button>
               </form>
               <section class="features">
                 <span class="material-symbols-outlined" @click="toggleImg">image</span>

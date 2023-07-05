@@ -3,6 +3,18 @@
     
     flex-wrap: wrap;
     justify-content: space-around;
+    /* position: relative; */
 }
 
+.note-list span {
+    /* position: absolute; */
+    /* right: 0; */
+    translate: 0 -110%;
+    margin-left: 2px;
+}
+
+.note-list span:hover {
+    cursor: pointer;
+    scale: 1.1;
+}
 

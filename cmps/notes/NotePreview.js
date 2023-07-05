@@ -11,7 +11,10 @@ export default {
                 <component 
                     :is="note.type"
                     :note="note"
+                    
+                    
                 />
+                
                 </section>
         `,
 created() {},
