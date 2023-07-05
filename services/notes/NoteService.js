@@ -61,7 +61,7 @@ export const NoteService = {
     remove,
     save,
     getEmptyNote,
-    crateNote
+    // crateNote
 }
 
 // function getNotesFromService() {
@@ -114,22 +114,22 @@ function save(note) {
     }
 }
 
-function getEmptyNote(id = utilService.makeId(), type = '', info = '') {
+function getEmptyNote(id = '', type = '' , info = { txt: ''}) {
     return { id, type, info }
 }
 
-function crateNote(type, txt) {
-    var newId = utilService.makeId()
-    const note = {
-        id: newId,
-        type: type,
-        info: {
-            txt: txt
-        }
-    }
-    gNotes.push(note)
-    return note
-}
+// function crateNote(type, txt) {
+//     var newId = utilService.makeId()
+//     const note = {
+//         id: newId,
+//         type: type,
+//         info: {
+//             txt: txt
+//         }
+//     }
+//     gNotes.push(note)
+//     return Promise.resolve(gNotes)
+// }
 
 
 function _createNotes() {

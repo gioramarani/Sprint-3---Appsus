@@ -1,4 +1,6 @@
 import { NoteService } from '../../services/notes/NoteService.js'
+// import { showSuccessMsg, showErrorMsg } from '../services/event-bus.service.js'
+
 
 import NoteList from '../../cmps/notes/NoteList.js'
 import NoteAdd from '../../cmps/notes/NoteAdd.js'
@@ -9,11 +11,11 @@ export default {
     template: `
         <section class="note-index">
             <NoteAdd
-            @create="createNewNote"
+            @create="saveNewNote"
             />
 
             <NoteList
-            :notes="getNotes"
+            :notes="notes"
             
             />
             
@@ -32,17 +34,25 @@ export default {
         }
     },
     methods: {
-        createNewNote(txt) {
-            const newNote = NoteService.crateNote('NoteTxt', txt)
-            console.log(newNote)
-            console.log(this.notes)
-            return newNote
-        }
+        saveNewNote(note, type, txt) {
+            note.info.txt = txt
+            note.type = type
+            console.log(note)
+            NoteService.save(note)
+                .then(savedNote => {
+                this.notes.push(savedNote)
+                console.log(this.notes)})
+                // showSuccessMsg('Note saved!')
+        //    NoteService.crateNote('NoteTxt', txt)
+        //         .then(notes => this.notes = notes)
+        //         console.log(this.notes)
+        },
+        
     },
     computed: {
-            getNotes() {
-                return this.notes
-            }
+        getNotes() {
+            return this.notes
+        },
     },
     components: {
         NoteList,
