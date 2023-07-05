@@ -3,9 +3,9 @@ export default {
     props: ['note'],
     template: `
 
-            <section>
-                <pre>{{ note }}</pre>
+            <section class="note-img">
                 <h1>{{ note.type }}</h1>
+                <h1>{{ note.info.title }}</h1>
             </section>
         `,
     created() { },

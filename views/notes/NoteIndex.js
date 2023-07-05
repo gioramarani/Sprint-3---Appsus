@@ -11,7 +11,7 @@ export default {
             <NotePreview
             
             :notes="notes"
-            @create="createNote"
+            @create="createNewNote"
             />
             
         </section>
@@ -36,13 +36,11 @@ export default {
         }
     },
     methods: {
-        createNote() {
-            const newNote = NoteService.getEmptyNote('', 'NoteTxt', '')
+        createNewNote(txt) {
+            const newNote = NoteService.crateNote('NoteTxt', txt)
             console.log(newNote)
-            this.notes.push(newNote)
             console.log(this.notes)
             return newNote
-
         }
     },
     computed: {},
