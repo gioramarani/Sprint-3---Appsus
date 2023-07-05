@@ -10,7 +10,9 @@ const options = {
 	template: `
         <section>
             <AppHeader />
-            <RouterView />
+            <section class="main-layout">
+                <RouterView />
+            </section>
             <AppFooter />
             <UserMsg />
         </section>

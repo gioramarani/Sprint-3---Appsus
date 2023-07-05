@@ -2,6 +2,8 @@
   background-color: var(--clr5);
   color: var(--secondary-clr1);
   padding: 1em;
+  /* display: flex; */
+
 }
 
 @media(max-width: 720px) {
@@ -10,3 +12,8 @@
     color: var(--secondary-clr2);
   }
 }
+
+/* .app-header a {
+  justify-content: space-between;
+} */
+
