@@ -24,7 +24,7 @@ const gNotes = [
         type: 'NoteImg',
         isPinned: false,
         info: {
-            url: 'http://some-img/me',
+            url: '',
             title: 'Bobi and Me'
         },
         style: {
@@ -66,7 +66,7 @@ export const NoteService = {
     getEmptyNote,
     removeFromHardCodedList,
     createImg,
-    // getYoutubeResults,
+    getYoutubeResults,
     // crateNote
 }
 
@@ -202,6 +202,7 @@ function createImg(ev) {
         reader.readAsDataURL(ev.target.files[0])
     })
 }
+
 // function _setNextPrevBookId(book) {
 //     return storageService.query(BOOK_KEY)
 //         .then(books => {

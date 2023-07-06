@@ -26,7 +26,7 @@ created() {},
   methods: {
     onClose() {
       console.log('close')
-      this.$routes = '/note'
+      this.$router = '/note'
     },
     save() {
       this.note.info.txt 
