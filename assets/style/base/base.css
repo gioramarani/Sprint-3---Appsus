@@ -2,9 +2,6 @@
   box-sizing: border-box;
 }
 
-html {
-}
-
 body {
   /* width: 100vw;
   height: 100vh; */
@@ -28,7 +25,7 @@ h4,
 h5,
 h6 {
   margin: 0 0;
-  font-family: "Edu VIC WA NT Beginner", cursive;
+  font-family: roboto, sans-serif;
 }
 
 p {
@@ -49,11 +46,6 @@ object {
 }
 
 /* tap targets: */
-nav a,
-button {
-  min-width: 48px;
-  min-height: 48px;
-}
 
 /* Simple and useful CSS Debugging Technique */
 .debug * {
