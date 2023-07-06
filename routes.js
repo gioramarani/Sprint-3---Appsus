@@ -2,7 +2,7 @@ import HomePage from './views/HomePage.js'
 import AboutUs from './views/AboutUs.js'
 
 import NoteIndex from './views/notes/NoteIndex.js'
-import NoteDetails from '../cmps/notes/NoteDetails.js'
+import NoteDetails from './cmps/notes/NoteDetails.js'
 
 import EmailIndex from './views/gmail/EmailIndex.js'
 import EmailDetails from './views/gmail/EmailDetails.js'
