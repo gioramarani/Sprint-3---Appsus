@@ -12,8 +12,9 @@ export default {
           <MailSideBar @open-compose-modal="showComposeModal = true"/>
           <MailList :mails="mails" 
           @update="update" 
+          @remove="removeMail"
           v-if="$route.name !== 'EmailDetails'"
-          @remove="removeMail"/>
+          />
           <router-view v-else />
           <MailComposeModal
             v-if="showComposeModal"

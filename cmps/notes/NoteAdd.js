@@ -7,24 +7,18 @@ export default {
             <section class="note-add">
             <form @submit.prevent="onCreate" >
               
-                <input type="text"
+                <input type="text" class="title-input"
                 placeholder="Title" v-model="title"/> <br/>
 
-                <input v-if="(isTodo)" v-for="line in todoLines.length" 
-                type="text" placeholder="List item" v-model="todoLines[line].txt"/>
+                <input v-if="(isTodo)" v-for="line in todoLines.length" class="todo-input"
+                type="text" placeholder="List item" v-model="todoLines[0].txt"/>
 
-                <input v-else type="text"
+                <input v-else type="text" class="txt-input"
                 placeholder="Take a note..." v-model="txt"/>
 
                 <span v-if="(todoLines[0].txt)" @click="addTodoLine"
-                 class="material-symbols-outlined">add</span>
-                <!-- <select v-model="type">Select type
-                  <option value="NoteTxt">Text</option>
-                  <option value="Img">Image</option> -->
-                  <!-- <input type="text"
-                placeholder="Type of note..." v-model="type"/> -->
-                  <!-- <option value="Todos">To-Do's</option>
-                  <option value="Video">Video</option> -->
+                 class="material-symbols-outlined add-todo-line">add</span>
+              
                 </select>
                 
                 <button class="material-symbols-outlined">check_box</button>
