@@ -26,7 +26,12 @@ created() {
   data() {
     return {}
   },
-  methods: {},
+  methods: {
+        onRemoveNote(noteId) {
+            console.log(noteId)
+            this.$emit('remove', noteId)
+        }
+  },
   computed: {},
 components:{
     NotePreview,

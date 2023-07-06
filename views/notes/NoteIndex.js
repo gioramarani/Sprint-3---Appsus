@@ -4,6 +4,7 @@ import { NoteService } from '../../services/notes/NoteService.js'
 
 import NoteList from '../../cmps/notes/NoteList.js'
 import NoteAdd from '../../cmps/notes/NoteAdd.js'
+import { showErrorMsg, showSuccessMsg } from '../../services/event-bus.service.js'
 
 export default {
     name: 'NoteIndex',
@@ -16,7 +17,7 @@ export default {
 
             <NoteList
             :notes="notes"
-            
+            @remove="removeNote"
             />
             
         </section>
@@ -54,6 +55,17 @@ export default {
             //    NoteService.crateNote('NoteTxt', txt)
             //         .then(notes => this.notes = notes)
             //         console.log(this.notes)
+        },
+        removeNote(noteId) {
+            NoteService.remove(noteId)
+                .then(() => {
+                    const idx = this.notes.findIndex(note => note.id === noteId)
+                    this.notes.splice(idx, 1)
+                    showSuccessMsg('Nore removed')
+                })
+                .catch(err => {
+                    showErrorMsg('Cannot remove note')
+                })
         },
 
     },

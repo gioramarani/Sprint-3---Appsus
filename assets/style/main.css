@@ -14,6 +14,7 @@
 @import "cmps/AppHeader.css";
 /* notes */
 @import "cmps/notes/NoteList.css";
+@import "cmps/notes/NoteDetails.css";
 @import "cmps/notes/NoteTxt.css";
 @import "cmps/notes/NoteImg.css";
 @import "cmps/notes/NoteVideo.css";
