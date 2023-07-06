@@ -1,6 +1,10 @@
 .note-add form {
     /* display: grid;
-    grid-template-rows: auto;     */
+    grid-template-rows: min-content;     */
+    display: flex;
+    flex-direction: column;
+    width: 500px;
+    
     margin-inline: 50vw;
     translate: -50%;
     border: 1px solid black;
@@ -16,6 +20,7 @@
 .note-add button{
     border-radius: 10px;
     border: 1px solid lightgray;
+    width: max-content;
 }
 
 .note-add .add-todo-line{
@@ -42,7 +47,7 @@
     display: flex;
     gap: 10px;
     margin-inline-start: 50vw;
-    translate: 4% -160%;
+    translate: -18% -160%;
 }
 
 .note-add span:hover {
@@ -51,5 +56,6 @@
 }
 
 .note-add button:hover {
-    scale: 1.1;
+    scale: 1.04;
 }
+

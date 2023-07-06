@@ -19,21 +19,23 @@ export default {
                 <span v-if="(todoLines[0].txt)" @click="addTodoLine"
                  class="material-symbols-outlined add-todo-line">add</span>
               
-                </select>
+               
                 
                 <button class="material-symbols-outlined">check_box</button>
               </form>
               <section class="features">
                 <span class="material-symbols-outlined" @click="toggleVideo">play_circle</span>
                 <span class="material-symbols-outlined" @click="toggleTodo">edit_note</span>
-                <!-- <form action="/api" method="post" enctype="multipart/form-data">
+                <span class="material-symbols-outlined" @click="toggleImg">image</span>
+              </section>  
+              
+                <form v-if="(isImg)" action="/api" method="post"
+                 enctype="multipart/form-data" class="img-upload">
                   <label for="file"></label>
                   <input id="file" name="file" type="file" />
-                  <span class="material-symbols-outlined" @click="toggleImg">image</span>
                   <button>Upload</button>
-                </form>  -->
+                </form> 
               
-              </section>  
               </section>
         `,
   created() { },
@@ -48,10 +50,10 @@ export default {
       isTodo: false,
       isPinned: false, //add toggle button,
       createdAt: Date.now(),
-      // todotxt: '',
       todoLines: [
         {txt: '', doneAt: null},
       ],
+      imgUrl: '',
 
 
     }
@@ -74,39 +76,40 @@ export default {
     
       if (this.isImg) {
         this.newNote = {
-          info: {
-            title: this.txt
-          },
           type: 'NoteImg',
+          info: {
+            title: this.txt,
+            // url: this.imgUrl
+          },
           createdAt: this.createdAt,
           isPinned: this.isPinned,
         }
       } else if (this.isVideo) {
         this.newNote = {
+          type: 'NoteVideo',
           info: {
             title: this.title
           },
-          type: 'NoteVideo',
           createdAt: this.createdAt,
           isPinned: this.isPinned,
         }
       } else if (this.isTodo) {
         this.newNote = {
+          type: 'NoteTodos',
           info: {
             title: this.title,
             todos: this.todoLines
           },
-          type: 'NoteTodos',
           createdAt: this.createdAt,
           isPinned: this.isPinned,
         }
       } else {
         this.newNote = {
+          type: 'NoteTxt',
           info: {
             title: this.title,
             txt: this.txt
           },
-          type: 'NoteTxt',
           createdAt: this.createdAt,
           isPinned: this.isPinned,
           style: {

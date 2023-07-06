@@ -1,8 +1,13 @@
 .main-layout {
   height: 100vh;
   display: grid;
-  grid-template-rows: 5rem 1fr 1rem;
+  grid-template-rows: 1rem 1fr 1rem;
   margin: 0 auto;
-  /* padding-left: 1.6rem; */
-  /* padding-right: 1.6rem; */
+  /* padding-left: 1.6rem;
+    padding-right: 1.6rem; */
 }
+
+.main-layout>*{
+  grid-column: 2;
+}
+

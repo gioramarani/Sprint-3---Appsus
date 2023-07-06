@@ -7,6 +7,7 @@ export default {
                 <!-- <pre>{{ note }}</pre> -->
                 <h2>{{ note.info.title }}</h2>
                 <h4 @click="onEditNote(note.id)">{{ note.info.txt }}</h4>
+                <!-- <RouterLink :to="'edit/' + note.id ">{{ note.info.txt }}</RouterLink> -->
                 <!-- <h1>{{ note.id }}</h1> --><br/>
                 <h6>{{ note.type }}</h6>
             </article>
@@ -16,9 +17,9 @@ created() {},
     return {}
   },
   methods: {
-    onEditNote(noteId) {
+  onEditNote(noteId) {
       console.log(noteId)
-      this.$emit('edit', noteId)
+      this.$router.push('/note/' + noteId)
 },
   },
   computed: {},

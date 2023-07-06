@@ -1,0 +1,12 @@
+.note-details {
+position: fixed;
+top: 50%;
+left: 50%;
+transform: translate(-50%, -50%);
+background: lightblue;
+height: 75vh;
+width: 60vw;
+box-shadow: 0 0 0 100vh #d3d3d382;
+border-radius: 0.8rem;
+padding: 1rem;
+}
