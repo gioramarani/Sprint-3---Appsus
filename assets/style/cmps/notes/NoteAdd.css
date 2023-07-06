@@ -9,11 +9,12 @@
     translate: -50%;
     border: 1px solid black;
     border-radius: 10px;
+    box-shadow: 1px 1px 4px 5px lightgray;
+    
     margin-top: 20px;
     margin-bottom: 2px;
     position: relative;
     /* margin-inline-start: auto; */
-    box-shadow: 1px 1px 4px 5px lightgray;
 }
 
 

@@ -5,7 +5,7 @@ import { NoteService } from '../../services/notes/NoteService.js'
 import NoteList from '../../cmps/notes/NoteList.js'
 import NoteAdd from '../../cmps/notes/NoteAdd.js'
 import NoteSideBar from '../../cmps/notes/NoteSideBar.js'
-import NoteSearch from '../../cmps/notes/NoteSearch.js'
+import NoteFilter from '../../cmps/notes/NoteFilter.js'
 import { showErrorMsg, showSuccessMsg } from '../../services/event-bus.service.js'
 
 export default {
@@ -14,7 +14,8 @@ export default {
     template: `
         <section class="note-index">
             <NoteSideBar/>
-            <NoteSearch
+            <NoteFilter
+            :notes="notes"
             @filter="filterNotesBy"
             />
             <NoteAdd
@@ -80,7 +81,7 @@ export default {
         },
         filterNotesBy(type) {
             console.log(type)
-            return notes.filter(note => note.type === type)
+            return this.notes.filter(note => note.type === type)
         }
     },
     computed: {
@@ -92,6 +93,6 @@ export default {
         NoteList,
         NoteAdd,
         NoteSideBar,
-        NoteSearch,
+        NoteFilter,
     },
 }
