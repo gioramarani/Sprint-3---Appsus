@@ -4,13 +4,19 @@ export default {
   template: `
             <section class="note-details">
               <h2>Hello</h2>
-            </section>
+                <RouterLink :to="/note">x</RouterLink>
+                <button @click="onClose">x</button>
+                </section>
         `,
 created() {},
   data() {
     return {}
   },
-  methods: {},
+  methods: {
+    onClose() {
+      this.$routes = '/note/'
+    }
+  },
   computed: {},
 components:{},
 }

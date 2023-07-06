@@ -27,14 +27,22 @@ export default {
                 <span class="material-symbols-outlined" @click="toggleVideo">play_circle</span>
                 <span class="material-symbols-outlined" @click="toggleTodo">edit_note</span>
                 <span class="material-symbols-outlined" @click="toggleImg">image</span>
+                
+                <span class="material-symbols-outlined" @click="onAddColor">format_color_fill</span>
+                <input v-if="(isBackgroundColored)" type="color" v-model="backgroundColor"
+                @input="backgroundColor" />
+                
+                <span v-if="(isImg)" @click="onUploadImg">Img upload try</span>
               </section>  
               
-                <form v-if="(isImg)" action="/api" method="post"
+                <!-- <form v-if="(isImg)" action="/api" method="post"
                  enctype="multipart/form-data" class="img-upload">
                   <label for="file"></label>
                   <input id="file" name="file" type="file" />
                   <button>Upload</button>
-                </form> 
+                </form>  -->
+
+                
               
               </section>
         `,
@@ -54,11 +62,19 @@ export default {
         {txt: '', doneAt: null},
       ],
       imgUrl: '',
+      isBackgroundColored: false,
+      backgroundColor: '',
 
 
     }
   },
   methods: {
+    onAddColor() {
+      this.isBackgroundColored = true
+    },
+    onUploadImg() {
+      NoteService.doUploadImg(this.imgUrl)
+    },
     addTodoLine(){
       this.todoLines.push({txt: '', doneAt: null})
     },
@@ -102,6 +118,9 @@ export default {
           },
           createdAt: this.createdAt,
           isPinned: this.isPinned,
+          style: {
+            backgroundColor: this.backgroundColor
+        },
         }
       } else {
         this.newNote = {
@@ -113,7 +132,7 @@ export default {
           createdAt: this.createdAt,
           isPinned: this.isPinned,
           style: {
-            backgroundColor: '#00d'
+            backgroundColor: this.backgroundColor
         },
         }
       }

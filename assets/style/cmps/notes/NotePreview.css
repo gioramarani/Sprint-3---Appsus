@@ -3,7 +3,7 @@
 }
 
 .rendered-note {
-    border: 1px solid rgb(177, 26, 26);
+    border: 1px solid lightgray;
     border-radius: 10px;
     height: 160px;
     width: 20vw;

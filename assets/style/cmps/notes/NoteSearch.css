@@ -1,0 +1,26 @@
+ .filter-by-modal {
+    /* display: flex; */
+    
+ 
+    width: 200px;
+    height: 150px;
+
+    position: fixed;
+    top: 140px;
+    left: 220px;
+
+    border: 1px solid black;
+    border-radius: 10px;
+    box-shadow: 1px 1px 4px 5px lightgray;
+}
+
+.filter-by-modal button {
+    width: 10px;
+    height: 10px;
+
+    background-color: green;
+    color: aliceblue;
+
+    align-content: space-around;
+    margin-top: 50px;
+}
