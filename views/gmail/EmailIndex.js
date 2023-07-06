@@ -9,12 +9,12 @@ export default {
   props: [],
   template: `
           <section class="mail-index">
-          <MailSideBar @open-compose-modal="showComposeModal = true"/>
-          <MailList :mails="mails" 
+          <MailSideBar @open-compose-modal="composeEmail"/>
+          <MailList :mails="filteredMails" 
           @update="update" 
-          v-if="$route.name !== 'EmailDetails'"
+          v-if="$route.name === 'email'"
           @remove="removeMail"/>
-          <router-view v-else />
+          <RouterView v-else />
           <MailComposeModal
             v-if="showComposeModal"
             @close-compose-modal="showComposeModal = false"
@@ -40,9 +40,10 @@ export default {
       mail.isRead = true
       emailService.save(mail)
         .then(mail => this.mail = mail)
-      this.$router.push({ name: 'EmailDetails', params: { mailId } })
+      // this.$router.push({ name: 'EmailDetails', params: { mailId } })
     },
     composeEmail() {
+      console.log('compose')
       const newMail = {
         id: '',
         subject: '',
@@ -51,12 +52,14 @@ export default {
         sentAt: Date.now(),
         removedAt: null,
         isSent: true,
-        from: loggedinUser.email,
+        from: 'tal',
         to: '',
       }
       emailService.save(newMail)
         .then(savedMail => {
-          this.$emit('open-compose-modal', savedMail)
+          console.log(savedMail)
+          this.showComposeModal = true
+          this.$router.push({ name: 'email', query: { compose: savedMail.id } })
         })
         .catch(error => {
           console.log('Failed to save new mail:', error)
@@ -69,17 +72,24 @@ export default {
       const mailIndex = this.mails.findIndex(mail => mail.id === mailId)
       if (mailIndex !== -1) {
         const mail = this.mails[mailIndex]
-        const currTime = new Date()
-        mail.removedAt = utilService.formatDate(currTime)
-        emailService.remove(mailId) // This saves the updated state to the storage
-          .then(() => {
-            this.mails.splice(mailIndex, 1)
-          })
-          .catch(error => {
-            console.log('Failed to remove mail:', error)
-          })
+        if (!mail.removedAt) {
+          const currTime = new Date()
+          mail.removedAt = utilService.formatDate(currTime)
+          emailService.save(mail)
+            .then(() => {
+              this.mails.splice(mailIndex, 1)
+            })
+            .catch(error => {
+              console.log('Failed to remove mail:', error)
+            })
+        }
       }
     },
+  },
+  computed: {
+    filteredMails() {
+      return this.mails.filter(mail => mail.removedAt === null)
+    }
   },
   components: {
     MailList,

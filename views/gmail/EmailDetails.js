@@ -7,10 +7,6 @@ export default {
             <h3>{{ mail.from }} </h3>
             <h4>{{ mail.body }}</h4>
             <button @click="returnToList">Return</button>
-            <!-- <RouterLink :to="'/car/' + car.nextCarId">Next Car</RouterLink> |
-            <RouterLink :to="'/car/' + car.prevCarId">Prev Car</RouterLink> | -->
-            
-            <!-- <RouterLink to="/car">Back to List</RouterLink> -->
         </section>
     `,
     data() {

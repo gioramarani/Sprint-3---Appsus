@@ -2,12 +2,17 @@ export default {
     name: 'MailComposeModal',
     template: `
         <div class="email-compose-modal">
-            <!-- Modal content and form -->
-            <h1>hi</h1>
+            <h1></h1>
 
             <button @click="closeComposeModal">Close</button>
         </div>
     `,
+    data() {
+        return {
+
+
+        }
+    },
     computed: {
     },
     methods: {

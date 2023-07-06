@@ -5,7 +5,7 @@ export default {
     name: 'MailPreview',
     props: ['mail'],
     template: `
-        <article class="mail-preview" :class="{ 'read': mail.isRead }">
+        <article class="mail-preview" @click="navigateTo" :class="{ 'read': mail.isRead }">
             <!-- <h2>Subject: {{ mail.subject }}</h2> -->
             <h4>{{mail.from}}</h4>
             <span>
@@ -13,7 +13,7 @@ export default {
             <h4>{{mail.body}}</h4>
             </span>
             <h4>{{formatted}}</h4>
-            <span class="material-symbols-outlined" @click="removeMail">delete</span>
+            <i class="material-symbols-outlined" @click.stop="removeMail">delete</i>
         </article>
         
     `,
@@ -26,6 +26,9 @@ export default {
     methods: {
         removeMail() {
             this.$emit('remove', this.mail.id)
+        },
+        navigateTo() {
+            this.$router.push('mail/' + this.mail.id)
         }
     },
     components: {

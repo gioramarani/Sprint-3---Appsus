@@ -22,6 +22,7 @@
 .mail-sidebar .icon span {
   margin-inline-start: 23px;
   height: 28px;
+  padding-block-start: 2.3px;
 }
 
 .mail-sidebar .compose {

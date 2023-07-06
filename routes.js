@@ -25,9 +25,10 @@ const routerOptions = {
 		{
 			path: '/email',
 			component: EmailIndex,
+			name: 'email',
 			children: [
 				{
-					path: ':mailId',
+					path: '/mail/:mailId',
 					name: 'EmailDetails',
 					component: EmailDetails
 				},

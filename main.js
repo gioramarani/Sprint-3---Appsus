@@ -18,7 +18,6 @@ const options = {
     `,
     components: {
         AppHeader,
-        AppFooter,
         UserMsg,
     },
 }

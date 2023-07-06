@@ -10,14 +10,14 @@ export default {
   <section class="mail-list">
     <ul>
         <li v-for="mail in mails" :key="mail.id"  >
-            <RouterLink :to="'/email/' + mail.id">
+           
             <MailPreview :mail="mail" 
-            @click="onUpdate(mail.id)" 
+            @click.stop="onUpdate(mail.id)" 
             @remove="removeMail(mail.id)"/>
             <section class="actions">
            
             </section>
-        </RouterLink> 
+       
 
         </li>
     </ul>

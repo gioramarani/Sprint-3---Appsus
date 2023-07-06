@@ -1,18 +1,37 @@
-.mail-list .mail- .mail-list .mail-index ul {
-  display: flex;
-  flex-direction: column;
+.mail-list {
+  padding: 32px;
+  background-color: #fff;
+  border-radius: 15px;
+  margin-block-start: 50px;
+  margin-inline-end: 50px;
+  margin-block-end: 25px;
+}
+
+.mail-list ul {
+  margin: 0;
 }
 
 .mail-index .mail-preview {
   display: flex;
   padding: 0 1rem;
-  align-items: end;
+  align-items: center;
   justify-content: space-between;
   margin: 0;
+  padding: 0.344rem;
+}
+
+.mail-index .mail-preview i {
+  background-color: transparent;
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+.mail-index .mail-preview i:hover {
+  background-color: rgb(227, 227, 227);
+  border-radius: 50%;
 }
 
 .mail-index .mail-preview h4 {
-  margin-block: 0.8em;
   font-family: roboto;
   font-size: 0.8125rem;
   color: var(--main-clr2);
@@ -20,15 +39,4 @@
 
 .mail-preview.read {
   background-color: var(--main-clr1);
-}
-
-.mail-index .mail-preview span {
-  display: flex;
-  flex-basis: 20rem;
-  justify-content: space-evenly;
-}
-
-.mail-preview {
-  display: grid;
-  grid-template-areas: side main;
 }
