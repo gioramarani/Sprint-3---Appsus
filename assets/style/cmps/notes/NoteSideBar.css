@@ -1,0 +1,21 @@
+.note-sidebar {
+    display: flex;
+    flex-direction: row;
+    font-size: 0.8125rem;
+    margin-block-start: 2rem;
+    background-color: aqua;
+  }
+  
+  .note-sidebar .icon {
+    display: flex;
+    align-items: center;
+    gap: 1.3em;
+  }
+  
+  .note-sidebar .icon span {
+    margin-inline-start: 23px;
+  }
+
+  .delete{
+    background-color: aqua;
+  }

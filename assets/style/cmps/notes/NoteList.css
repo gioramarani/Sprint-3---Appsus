@@ -1,24 +1,12 @@
 .note-list {
-    /* display: flex; */
-    
-     /* flex-wrap: wrap;  */
-    /* justify-content: space-around;  */
-
-    column-count: 2;
+    column-count: 4;
     column-fill: inherit;
-    /* column-gap: 2px; */
-
-    /* position: relative; */
+    width: fit-content;
+    
     margin-top: 40px;
-    /* margin-inline-start: 20px; */
-
-    /* break-inside: avoid-column;
-      height: fit-content; */
 }
 
 .note-list span {
-    /* position: absolute; */
-    /* right: 0; */
     translate: 0 -110%;
     margin-left: 2px;
 }
