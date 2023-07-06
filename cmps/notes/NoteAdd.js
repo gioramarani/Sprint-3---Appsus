@@ -7,9 +7,13 @@ export default {
             <section class="note-add">
             <form @submit.prevent="onCreate" >
                 <input type="text"
-                placeholder="Title" v-model="txt"/> <br/>
-                <input type="text"
+                placeholder="Title" v-model="title"/> <br/>
+                <input v-if="(isTodo)" v-for="line in todoLineCount.length" 
+                type="text" placeholder="List item" v-model="todotxt"/>
+                <input v-else type="text"
                 placeholder="Take a note..." v-model="txt"/>
+                <span v-if="(todotxt)" @click="addTodoLine"
+                 class="material-symbols-outlined">add</span>
                 <!-- <select v-model="type">Select type
                   <option value="NoteTxt">Text</option>
                   <option value="Img">Image</option> -->
@@ -38,22 +42,32 @@ export default {
   data() {
     return {
       newNote: NoteService.getEmptyNote(),
+      title: '',
       txt: '',
       type: '',
       isImg: false,
       isVideo: false,
-      isTodo: false
+      isTodo: false,
+      isPinned: false, //add toggle button,
+      createdAt: Date.now(),
+      todotxt: '',
+      todoLineCount: ['line'],
+
+
     }
   },
   methods: {
+    addTodoLine(){
+      this.todoLineCount.push('line')
+    },
     toggleTodo() {
-      this.isTodo = true
+      this.isTodo = !this.isTodo
     },
     toggleImg() {
-      this.isImg = true
+      this.isImg = !this.isImg
     },
     toggleVideo() {
-      this.isVideo = true
+      this.isVideo = !this.isVideo
     },
     onCreate() {
       console.log(this.newNote)
@@ -63,39 +77,61 @@ export default {
           info: {
             title: this.txt
           },
-          type: 'NoteImg'
+          type: 'NoteImg',
+          createdAt: this.createdAt,
+          isPinned: this.isPinned,
         }
       } else if (this.isVideo) {
         this.newNote = {
           info: {
             title: this.txt
           },
-          type: 'NoteVideo'
+          type: 'NoteVideo',
+          createdAt: this.createdAt,
+          isPinned: this.isPinned,
         }
       } else if (this.isTodo) {
         this.newNote = {
           info: {
-            title: this.txt
+            title: this.title,
+            todos: [
+              {txt: this.todotxt, doneAt: null},
+              {txt: this.todotxt, doneAt: null}
+            ]
           },
-          type: 'NoteTodos'
+          type: 'NoteTodos',
+          createdAt: this.createdAt,
+          isPinned: this.isPinned,
         }
       } else {
         this.newNote = {
           info: {
+            title: this.title,
             txt: this.txt
           },
-          type: 'NoteTxt'
+          type: 'NoteTxt',
+          createdAt: this.createdAt,
+          isPinned: this.isPinned,
+          style: {
+            backgroundColor: '#00d'
+        },
         }
       }
       // this.$emit('create', this.newNote, this.type ,this.txt)
       this.$emit('create', this.newNote)
       console.log(this.newNote)
+      this.title = ''
       this.txt = ''
       this.newNote = {}
       this.type = ''
       this.isImg = false
       this.isVideo = false
       this.isTodo = false
+      this.todoLineCount = []
+      // isPinned = false
+      // style = {}
+
+
 
       console.log(this.newNote)
 
