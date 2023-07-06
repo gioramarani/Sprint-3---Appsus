@@ -1,19 +1,53 @@
 .note-add form {
+    /* display: grid;
+    grid-template-rows: min-content;     */
     display: flex;
+    flex-direction: column;
+    width: 500px;
+    
     margin-inline: 50vw;
     translate: -50%;
     border: 1px solid black;
+    border-radius: 10px;
     margin-top: 20px;
     margin-bottom: 2px;
     position: relative;
     /* margin-inline-start: auto; */
+    box-shadow: 1px 1px 4px 5px lightgray;
 }
+
+
+.note-add button{
+    border-radius: 10px;
+    border: 1px solid lightgray;
+    width: max-content;
+}
+
+.note-add .add-todo-line{
+    translate: 650% -190%;
+}
+
+.note-add .title-input{
+    border-radius: 10px;
+    border: 1px solid lightgray;
+}
+
+.note-add .txt-input{
+    border-radius: 10px;
+    border: 1px solid lightgray;
+}
+.note-add .todo-input{
+    border-radius: 10px;
+    border: 1px solid lightgray;
+}
+
+
 
 .note-add .features {
     display: flex;
     gap: 10px;
     margin-inline-start: 50vw;
-    translate: -15%;
+    translate: -18% -160%;
 }
 
 .note-add span:hover {
@@ -21,6 +55,7 @@
     cursor: pointer;
 }
 
-/* button {
-   position: absolute;
-} */
+.note-add button:hover {
+    scale: 1.04;
+}
+

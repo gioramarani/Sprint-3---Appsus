@@ -24,3 +24,20 @@
   margin-inline-end: auto;
 }
 
+
+.app-header .note-search {
+  margin-inline: 50vw;
+    translate: -50%;
+
+    margin-top: 20px;
+    position: relative;
+}
+
+.app-header .note-search span {
+  position: absolute;
+  /* translate: -920% 0%; */
+  left: -30px;
+  top: 12px;
+  color: aliceblue;
+}
+

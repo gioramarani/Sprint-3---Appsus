@@ -21,6 +21,8 @@ export default {
             :notes="notes"
             @remove="removeNote"
             />
+
+            <RouterView></RouterView>
             
         </section>
         `,

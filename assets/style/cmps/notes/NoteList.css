@@ -8,7 +8,7 @@
 
 .note-list span {
     translate: 0 -110%;
-    margin-left: 2px;
+    /* margin-left: 2px; */
 }
 
 .note-list span:hover {

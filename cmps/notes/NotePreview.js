@@ -12,7 +12,7 @@ export default {
                     class="rendered-note"
                     :is="note.type"
                     :note="note"
-                    
+                   
                     
                 />
                 <span class="material-symbols-outlined" 
@@ -27,7 +27,8 @@ created() {},
     onRemoveNote(noteId) {
         console.log(noteId)
         this.$emit('remove', noteId)
-    }
+    },
+   
   },
   computed: {},
 components:{
