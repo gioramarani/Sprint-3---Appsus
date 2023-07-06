@@ -33,6 +33,7 @@ export default {
             console.log(mailId)
         },
         removeMail(mailId) {
+            console.log('mailId', mailId)
             this.$emit('remove', mailId)
         }
     },

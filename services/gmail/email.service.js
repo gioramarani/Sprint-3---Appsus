@@ -100,8 +100,18 @@ function save(mail) {
 //         })
 // }
 
-function getEmptyMail(id = '', subject = '') {
-    return { id, subject }
+function getEmptyMail() {
+    return {
+        id: '',
+        subject: '',
+        body: '',
+        isRead: false,
+        sentAt: Date.now(),
+        removedAt: null,
+        isSent: false,
+        from: loggedinUser.fullname,
+        to: '',
+    }
 }
 
 function _createMails() {
@@ -109,11 +119,6 @@ function _createMails() {
     let mails = utilService.loadFromStorage(MAIL_KEY)
     if (!mails || !mails.length) {
         utilService.saveToStorage(MAIL_KEY, gEmail)
-        console.log(mails)
     }
 }
 
-function _createMail(id, subject) {
-    const mail = getEmptyMail(id, subject)
-    return mail
-}

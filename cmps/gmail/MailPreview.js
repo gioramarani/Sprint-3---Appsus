@@ -14,6 +14,7 @@ export default {
             </span>
             <h4>{{formatted}}</h4>
             <i class="material-symbols-outlined" @click.stop="removeMail">delete</i>
+        <!-- <pre>{{mail}}</pre> -->
         </article>
         
     `,
