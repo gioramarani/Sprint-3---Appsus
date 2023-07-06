@@ -3,13 +3,13 @@ import { emailService } from "../../services/gmail/email.service.js"
 export default {
     name: 'MailComposeModal',
     template: `
-        <div class="email-compose-modal" v-if="mail">
-            <input type="text" v-model="mail.to" @blur="update"/>
-            <input type="text" v-model="mail.subject"/>
-            <input type="text" v-model="mail.body"/>
-            <pre>{{mail}}</pre>
-            <button @click="closeComposeModal">Close</button>
-        </div>
+            <div class="email-compose-modal" v-if="mail">
+                <div class="">New Message</div>
+                <input type="text" v-model="mail.to" @blur="update" class="compose-input compose-to" placeholder="Recipients">
+                <input type="text" v-model="mail.subject" class="compose-input compose-subject" placeholder="Subject">
+                <textarea v-model="mail.body" class="compose-body"></textarea>
+                <button @click="closeComposeModal" class="compose-button">Send</button>
+            </div>
     `,
     data() {
         return {
@@ -17,11 +17,11 @@ export default {
         }
     },
     created() {
-        this.params()
+        // this.params()
     },
     computed: {
         mailId() {
-            return this.$route.query.mailId
+            return this.$route.query.compose
         }
     },
     methods: {
@@ -35,9 +35,9 @@ export default {
             emailService.save(this.mail)
         },
         params() {
-            const mailId = this.$route.query
-            emailService.
-                get(mailId)
+            const mailId = this.$route.query.compose
+            console.log('mailId', mailId)
+            emailService.get(mailId)
                 .then(mail => {
                     this.mail = mail
                 })

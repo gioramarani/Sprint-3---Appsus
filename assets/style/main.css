@@ -25,6 +25,7 @@
 @import "cmps/notes/NoteAdd.css";
 /*mail*/
 @import "cmps/gmail/MailSideBar.css";
+@import "cmps/gmail/ComposeModal.css";
 /* Apps */
 @import "apps/mail/EmailIndex.css";
 @import "apps/mail/EmailList.css";
