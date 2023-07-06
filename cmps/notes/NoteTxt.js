@@ -3,12 +3,13 @@ export default {
   props: ['note'],
   template: `
 
-            <section class="note-txt">
+            <article class="note-txt">
                 <!-- <pre>{{ note }}</pre> -->
-                <h1>{{ note.type }}</h1>
-                <!-- <h1>{{ note.id }}</h1> -->
-                <h1>{{ note.info.txt }}</h1>
-            </section>
+                <h2>{{ note.info.title }}</h2>
+                <h4>{{ note.info.txt }}</h4>
+                <!-- <h1>{{ note.id }}</h1> --><br/>
+                <h6>{{ note.type }}</h6>
+            </article>
         `,
 created() {},
   data() {

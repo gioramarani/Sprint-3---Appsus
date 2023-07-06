@@ -6,13 +6,17 @@ export default {
   template: `
             <section class="note-add">
             <form @submit.prevent="onCreate" >
+              
                 <input type="text"
                 placeholder="Title" v-model="title"/> <br/>
-                <input v-if="(isTodo)" v-for="line in todoLineCount.length" 
-                type="text" placeholder="List item" v-model="todotxt"/>
+
+                <input v-if="(isTodo)" v-for="line in todoLines.length" 
+                type="text" placeholder="List item" v-model="todoLines[line].txt"/>
+
                 <input v-else type="text"
                 placeholder="Take a note..." v-model="txt"/>
-                <span v-if="(todotxt)" @click="addTodoLine"
+
+                <span v-if="(todoLines[0].txt)" @click="addTodoLine"
                  class="material-symbols-outlined">add</span>
                 <!-- <select v-model="type">Select type
                   <option value="NoteTxt">Text</option>
@@ -50,15 +54,17 @@ export default {
       isTodo: false,
       isPinned: false, //add toggle button,
       createdAt: Date.now(),
-      todotxt: '',
-      todoLineCount: ['line'],
+      // todotxt: '',
+      todoLines: [
+        {txt: '', doneAt: null},
+      ],
 
 
     }
   },
   methods: {
     addTodoLine(){
-      this.todoLineCount.push('line')
+      this.todoLines.push({txt: '', doneAt: null})
     },
     toggleTodo() {
       this.isTodo = !this.isTodo
@@ -84,7 +90,7 @@ export default {
       } else if (this.isVideo) {
         this.newNote = {
           info: {
-            title: this.txt
+            title: this.title
           },
           type: 'NoteVideo',
           createdAt: this.createdAt,
@@ -94,10 +100,7 @@ export default {
         this.newNote = {
           info: {
             title: this.title,
-            todos: [
-              {txt: this.todotxt, doneAt: null},
-              {txt: this.todotxt, doneAt: null}
-            ]
+            todos: this.todoLines
           },
           type: 'NoteTodos',
           createdAt: this.createdAt,

@@ -64,7 +64,10 @@ export default {
                     showSuccessMsg('Nore removed')
                 })
                 .catch(err => {
-                    showErrorMsg('Cannot remove note')
+                    console.log(noteId)
+                    // NoteService.removeFromHardCodedList(noteId)
+                    const idx = this.notes.findIndex(note => note.id === noteId)
+                    this.notes.splice(idx, 1)
                 })
         },
 

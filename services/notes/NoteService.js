@@ -13,6 +13,7 @@ const gNotes = [
             backgroundColor: '#00d'
         },
         info: {
+            title: 'Hello',
             txt: 'Fullstack Me Baby!'
         }
     },
@@ -62,6 +63,7 @@ export const NoteService = {
     save,
     getEmptyNote,
     doUploadImg,
+    removeFromHardCodedList,
     // crateNote
 }
 
@@ -105,6 +107,12 @@ function get(noteId) {
 
 function remove(noteId) {
     return storageService.remove(NOTE_KEY, noteId)
+}
+
+function removeFromHardCodedList(noteId) {
+         const idx = gNotes.findIndex(note => note.id === noteId)
+         gNotes.splice(idx, 1)
+         return gNotes
 }
 
 function save(note) {

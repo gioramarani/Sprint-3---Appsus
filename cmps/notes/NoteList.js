@@ -7,17 +7,18 @@ export default {
   template: `
 
             <section>
-                <ul  class="note-list">
-                    <li v-for="note in notes" :key="note.id">
+                <ul class="note-list" >
+                    <li  v-for="note in notes" :key="note.id">
                     <NotePreview 
                     :note="note"
+                    @click="onEditNote(note.id)"
                     />
                     <span class="material-symbols-outlined" 
                     @click="onRemoveNote(note.id)">delete</span> 
                     <span class="material-symbols-outlined"
-                    @click="onEditNote(note.id)">edit</span>
-                    </li>
-                </ul>
+                   >edit</span>
+</li>
+</ul>
             </section>
         `,
 created() {
@@ -27,6 +28,10 @@ created() {
     return {}
   },
   methods: {
+        onEditNote(noteId) {
+            console.log(noteId)
+            this.$emit('edit', noteId)
+    },
         onRemoveNote(noteId) {
             console.log(noteId)
             this.$emit('remove', noteId)
