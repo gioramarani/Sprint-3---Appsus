@@ -3,6 +3,7 @@ import AboutUs from './views/AboutUs.js'
 
 import NoteIndex from './views/notes/NoteIndex.js'
 import NoteDetails from './cmps/notes/NoteDetails.js'
+import NoteList from './cmps/notes/NoteList.js'
 
 import EmailIndex from './views/gmail/EmailIndex.js'
 import EmailDetails from './views/gmail/EmailDetails.js'
@@ -29,6 +30,10 @@ const routerOptions = {
 					path: ':noteId',
 					component: NoteDetails,
 				},
+				{
+					path: 'filter',
+					component: NoteList,
+				}
 			],
 		},
 		{

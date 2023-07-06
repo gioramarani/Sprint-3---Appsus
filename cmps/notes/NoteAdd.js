@@ -8,7 +8,7 @@ export default {
             <form @submit.prevent="onCreate" >
               
                 <input type="text" class="title-input"
-                placeholder="Title" v-model="title"/> <br/>
+                placeholder="Title" v-model="title"/> 
 
                 <input v-if="(isTodo)" v-for="line in todoLines.length" class="todo-input"
                 type="text" placeholder="List item" v-model="todoLines[0].txt"/>
@@ -23,6 +23,7 @@ export default {
                 
                 <button class="material-symbols-outlined">check_box</button>
               </form>
+
               <section class="features">
                 <span class="material-symbols-outlined" @click="toggleVideo">play_circle</span>
                 <span class="material-symbols-outlined" @click="toggleTodo">edit_note</span>
@@ -32,15 +33,8 @@ export default {
                 <input v-if="(isBackgroundColored)" type="color" v-model="backgroundColor"
                 @input="backgroundColor" />
                 
-                <span v-if="(isImg)" @click="onUploadImg">Img upload try</span>
-              </section>  
-              
-                <!-- <form v-if="(isImg)" action="/api" method="post"
-                 enctype="multipart/form-data" class="img-upload">
-                  <label for="file"></label>
-                  <input id="file" name="file" type="file" />
-                  <button>Upload</button>
-                </form>  -->
+               <!-- <input v-if="(isImg)" @change="onUploadImg" id="file" name="file" type="file" /> -->
+                  
 
                 
               
@@ -62,6 +56,7 @@ export default {
         {txt: '', doneAt: null},
       ],
       imgUrl: '',
+      videoUrl: '',
       isBackgroundColored: false,
       backgroundColor: '',
 
@@ -72,8 +67,13 @@ export default {
     onAddColor() {
       this.isBackgroundColored = true
     },
-    onUploadImg() {
-      NoteService.doUploadImg(this.imgUrl)
+    onUploadImg(ev) {
+      NoteService.createImg(ev)
+        .then(url => this.imgUrl = url)
+    },
+    onUploadVideo() {
+      NoteService.getYoutubeResults()
+      // something//
     },
     addTodoLine(){
       this.todoLines.push({txt: '', doneAt: null})
@@ -95,7 +95,7 @@ export default {
           type: 'NoteImg',
           info: {
             title: this.txt,
-            // url: this.imgUrl
+            url: this.imgUrl,
           },
           createdAt: this.createdAt,
           isPinned: this.isPinned,
@@ -104,7 +104,8 @@ export default {
         this.newNote = {
           type: 'NoteVideo',
           info: {
-            title: this.title
+            title: this.title,
+            url: this.videoUrl,
           },
           createdAt: this.createdAt,
           isPinned: this.isPinned,

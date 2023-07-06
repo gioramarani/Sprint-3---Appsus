@@ -16,7 +16,7 @@ export default {
             <NoteSideBar/>
             <NoteFilter
             :notes="notes"
-            @filter="filterNotesBy"
+            
             />
             <NoteAdd
             @create="saveNewNote"
@@ -81,7 +81,7 @@ export default {
         },
         filterNotesBy(type) {
             console.log(type)
-            return this.notes.filter(note => note.type === type)
+            // return this.notes.filter(note => note.type === type)
         }
     },
     computed: {

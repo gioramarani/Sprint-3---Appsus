@@ -2,7 +2,7 @@ export default {
   name:'NoteFilter',
   props: ['notes'],
   template: `
-            <form class="note-filter" @submit="">
+            <form class="note-filter" >
                 <input type="text" placeholder="Search" @click="onFilterBy" />
                 <span class="material-symbols-outlined">
                 search
@@ -37,11 +37,6 @@ created() {},
         onFilterBy() {
             this.filterByModal= !this.filterByModal
         },
-        // filterBy(type) {
-        //     console.log(type)
-        //     this.$emit('filter', type)
-            // send route to List, and send it a prop of filtered notes.
-        // },
         filterBy(unFilteredNotes ,type) {
             console.log(unFilteredNotes)
             console.log(type)

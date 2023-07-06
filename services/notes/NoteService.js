@@ -2,6 +2,8 @@ import { utilService } from '../util.service.js'
 import { storageService } from '../async-storage.service.js'
 
 const NOTE_KEY = 'noteDB'
+const YT_KEY = ''
+
 
 const gNotes = [
     {
@@ -62,8 +64,9 @@ export const NoteService = {
     remove,
     save,
     getEmptyNote,
-    doUploadImg,
     removeFromHardCodedList,
+    createImg,
+    // getYoutubeResults,
     // crateNote
 }
 
@@ -153,34 +156,52 @@ function _createNotes() {
     }
 }
 
-function doUploadImg(imgDataUrl, onSuccess) {
-    // Pack the image for delivery
-    const formData = new FormData()
-    formData.append('img', imgDataUrl)
+function getYoutubeResults(keyword) {
+    // if (!gHistoryCache.includes(keyword)) {
+    //   gHistoryCache.push(keyword)
+    //   saveToStorage(HISTORY_KEY, gHistoryCache)
+    // }
+  
+    // if (gSearchCache[keyword]) {
+    //   console.log('Getting from cache')
+    //   return Promise.resolve(gSearchCache[keyword])
+    // }
+  
+    const url = `https://www.googleapis.com/youtube/v3/search?part=snippet
+                  &videoEmbeddable=true&type=video&key=${YT_KEY}&q=${keyword}`
+    return fetch(url)
+      .then(res => res.json())
+      .then(res => {
+        console.log(res)
+        const results = res.items.map(item => _prepareVideoData(item, keyword))
+        // gSearchCache[keyword] = results
+        // saveToStorage(SEARCH_KEY, gSearchCache)
+        return results
+      })
+  }
 
-    // Send a post req with the image to the server
-    const XHR = new XMLHttpRequest()
-    XHR.onreadystatechange = () => {
-        // If the request is not done, we have no business here yet, so return
-        if (XHR.readyState !== XMLHttpRequest.DONE) return
-        // if the response is not ok, show an error
-        if (XHR.status !== 200) return console.error('Error uploading image')
-        const { responseText: url } = XHR
-        // Same as
-        // const url = XHR.responseText
+  function _prepareVideoData(item, keyword) {
+    return {
+      keyword,
+      id: item.id.videoId,
+      title: item.snippet.title,
+      imgUrl: item.snippet.thumbnails.default.url,
+    }
+  }
+  
+function createImg(ev) {
+    return new Promise(resolve => {
+        const reader = new FileReader()
 
-        // If the response is ok, call the onSuccess callback function, 
-        // that will create the link to facebook using the url we got
-        console.log('Got back live url:', url)
-        onSuccess(url)
-    }
-    XHR.onerror = (req, ev) => {
-        console.error('Error connecting to server with request:', req, '\nGot response data:', ev)
-    }
-    XHR.open('POST', '//ca-upload.com/here/upload.php')
-    XHR.send(formData)
+        reader.onload = function(event) {
+            let img = new Image()
+            img.src = event.target.result
+
+            resolve(img.src)
+        }
+        reader.readAsDataURL(ev.target.files[0])
+    })
 }
-
 // function _setNextPrevBookId(book) {
 //     return storageService.query(BOOK_KEY)
 //         .then(books => {
