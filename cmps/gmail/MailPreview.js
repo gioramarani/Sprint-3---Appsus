@@ -1,4 +1,5 @@
 import MailSideBar from "./MailSideBar.js"
+import { utilService } from "../../services/util.service.js"
 
 export default {
     name: 'MailPreview',
@@ -11,20 +12,21 @@ export default {
             <h4>{{mail.subject}}</h4>
             <h4>{{mail.body}}</h4>
             </span>
-            <h4>{{formatDate}}</h4>
+            <h4>{{formatted}}</h4>
+            <span class="material-symbols-outlined" @click="removeMail">delete</span>
         </article>
         
     `,
     computed: {
-        formatDate() {
-            const sentDate = new Date(this.mail.sentAt)
-            const day = sentDate.getDate()
-            const month = sentDate.getMonth() + 1
-            const year = sentDate.getFullYear() % 100
-            return `${day}/${month}/${year}`
+        formatted() {
+            return utilService.formatDate(this.mail.sentAt)
         }
+
     },
     methods: {
+        removeMail() {
+            this.$emit('remove', this.mail.id)
+        }
     },
     components: {
         MailSideBar,

@@ -3,8 +3,16 @@ export const utilService = {
     saveToStorage,
     loadFromStorage,
     debounce,
+    formatDate,
 }
 
+function formatDate(date) {
+    const sentDate = new Date(date)
+    const day = sentDate.getDate()
+    const month = sentDate.getMonth() + 1
+    const year = sentDate.getFullYear() % 100
+    return `${day}/${month}/${year}`
+}
 
 function makeId(length = 5) {
     var txt = ''
@@ -27,11 +35,11 @@ function loadFromStorage(key) {
 function debounce(func, wait) {
     let timeout
     return function (...args) {
-      const later = () => {
+        const later = () => {
+            clearTimeout(timeout)
+            func(...args)
+        }
         clearTimeout(timeout)
-        func(...args)
-      }
-      clearTimeout(timeout)
-      timeout = setTimeout(later, wait)
+        timeout = setTimeout(later, wait)
     }
-  }
+}

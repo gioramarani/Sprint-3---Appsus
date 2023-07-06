@@ -19,6 +19,7 @@ const gEmail = [{
     isRead: false,
     sentAt: 1551133930594,
     removedAt: null,
+    isSent: false,
     from: 'momo@momo.com',
     to: 'user@appsus.com'
 },
@@ -29,6 +30,7 @@ const gEmail = [{
     isRead: false,
     sentAt: 1551133930594,
     removedAt: null,
+    isSent: false,
     from: 'momo@momo.com',
     to: 'user@appsus.com'
 },
@@ -39,6 +41,7 @@ const gEmail = [{
     isRead: false,
     sentAt: 1551133930594,
     removedAt: null,
+    isSent: false,
     from: 'momo@momo.com',
     to: 'user@appsus.com'
 }

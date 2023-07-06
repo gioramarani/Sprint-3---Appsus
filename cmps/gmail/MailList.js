@@ -11,8 +11,12 @@ export default {
     <ul>
         <li v-for="mail in mails" :key="mail.id"  >
             <RouterLink :to="'/email/' + mail.id">
-            <MailPreview :mail="mail"  @click="onUpdate(mail.id)" />
-            <!-- <button @click="onRemoveBook(book.id)" class="close">x</button> -->
+            <MailPreview :mail="mail" 
+            @click="onUpdate(mail.id)" 
+            @remove="removeMail(mail.id)"/>
+            <section class="actions">
+           
+            </section>
         </RouterLink> 
 
         </li>
@@ -24,12 +28,12 @@ export default {
         return {}
     },
     methods: {
-        // onRemoveBook(bookId) {
-        //     this.$emit('remove', bookId)
-        // }
         onUpdate(mailId) {
             this.$emit('update', mailId)
             console.log(mailId)
+        },
+        removeMail(mailId) {
+            this.$emit('remove', mailId)
         }
     },
     computed: {},

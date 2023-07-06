@@ -30,13 +30,9 @@ const routerOptions = {
 					path: ':mailId',
 					name: 'EmailDetails',
 					component: EmailDetails
-				}
+				},
 			]
 		},
-		// {
-		// 	path: '/email/:mailId',
-		// 	component: EmailDetails
-		// },
 	],
 }
 
