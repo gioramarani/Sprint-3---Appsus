@@ -3,7 +3,7 @@ import AboutUs from './views/AboutUs.js'
 
 import NoteIndex from './views/notes/NoteIndex.js'
 import NoteDetails from './cmps/notes/NoteDetails.js'
-import NoteList from './cmps/notes/NoteList.js'
+import NoteList from './views/notes/NoteList.js'
 import NoteArchive from './cmps/notes/NoteArchive.js'
 import NoteBin from './cmps/notes/NoteBin.js'
 import NoteReminders from './cmps/notes/NoteReminders.js'

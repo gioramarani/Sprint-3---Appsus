@@ -3,7 +3,7 @@ import { NoteService } from '../../services/notes/NoteService.js'
 
 
 
-import NoteList from '../../cmps/notes/NoteList.js'
+import NoteList from './NoteList.js'
 import NoteAdd from '../../cmps/notes/NoteAdd.js'
 import NoteSideBar from '../../cmps/notes/NoteSideBar.js'
 import NoteFilter from '../../cmps/notes/NoteFilter.js'

@@ -1,16 +1,20 @@
 .note-preview{
     break-inside: avoid-column;
     
+    display: flex;
+    flex-direction: column;
+    position: relative;
 }
 
 .rendered-note {
+
     border: 1px solid lightgray;
     border-radius: 10px;
     height: 160px;
     height: max-content;
     width: 20vw;
     transition: 200ms;
-    position: relative;
+    /* position: relative; */
 }
 
 .rendered-note:hover {
@@ -18,11 +22,10 @@
 }
 
 .note-preview .delete {
-    /* position: absolute;
-    bottom: 10px;
-    right: 10px; */
-    translate: 740% -110%;
-    /* margin-left: 2px; */
+    right: 5%;
+    bottom: 2%;
+    position: absolute;
+    
 }
 
 .note-preview span:hover {

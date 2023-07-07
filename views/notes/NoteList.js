@@ -1,4 +1,4 @@
-import NotePreview from './NotePreview.js'
+import NotePreview from '../../cmps/notes/NotePreview.js'
 
 
 export default {

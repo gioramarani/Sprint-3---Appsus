@@ -1,21 +1,23 @@
+
+
 .note-add form {
     /* display: grid;
     grid-template-rows: min-content;     */
     display: flex;
     flex-direction: column;
-    width: 500px;
+    width: 30vw;
     
-    margin-inline: 50vw;
-    translate: -50%;
+  
+    /* translate: -50%; */
     border: 1px solid black;
     border-radius: 10px;
     box-shadow: 1px 1px 4px 5px lightgray;
     color: black;
 
-    margin-top: 20px;
-    margin-bottom: 2px;
-    position: relative;
-    /* margin-inline-start: auto; */
+    /* margin-top: 20px; */
+    /* margin-bottom: 2px; */
+    /* position: relative; */
+    margin-inline: auto;
 }
 
 
@@ -30,12 +32,14 @@
 .note-add .title-input{
     border-radius: 10px;
     border: 1px solid lightgray;
+    font-family: opensans;
     
 }
 
 .note-add .txt-input{
     border-radius: 10px;
     border: 1px solid lightgray;
+    font-family: opensans;
 }
 
 

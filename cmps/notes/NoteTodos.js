@@ -8,8 +8,8 @@ export default {
               <ul >
                 <li v-for="line in lines" v-model="todoTxt" class="todo-input">
                 {{ note.info.todos[lineNum].txt }}
-                <span v-if="(lines[0].txt)" @click="addTodoLine"
-                   class="material-symbols-outlined add-todo-line">add</span>
+                <!-- <span v-if="(lines[0].txt)" @click="addTodoLine"
+                   class="material-symbols-outlined add-todo-line">add</span> -->
               </li>
               </ul>
               <!-- <h4 v-for="line in lines" v-model="todoTxt"

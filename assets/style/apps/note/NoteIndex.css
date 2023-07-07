@@ -1,6 +1,6 @@
 .note-index {
     display: grid;
-    grid-template-columns: 295px 1fr;
+    grid-template-columns: 225px auto;
     height: 100%;
     color: black;
   }
