@@ -13,8 +13,7 @@ export default {
                     :note="note"
                     @remove="onRemoveNote"
                     />
-                    <!-- <span class="material-symbols-outlined" 
-                    @click="onRemoveNote(note.id)">delete</span>  -->
+                
                     
 </li>
 </ul>

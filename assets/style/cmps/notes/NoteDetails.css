@@ -4,9 +4,43 @@ top: 50%;
 left: 50%;
 transform: translate(-50%, -50%);
 background: lightblue;
-height: 75vh;
-width: 60vw;
-box-shadow: 0 0 0 100vh #d3d3d382;
+height: 45vh;
+width: 70vw;
+box-shadow: 0 0 0 100vh #fff9f9db;
 border-radius: 0.8rem;
 padding: 1rem;
+
+visibility: visible;
+opacity: 12;
+
+transition: 0.5s;
+}
+
+.hidden {
+visibility: hidden;
+opacity: 0;
+}
+
+.note-details h2 {
+    background-color: green;
+    /* border-radius: 15px; */
+    /* width: 70vw; */
+
+}
+
+.note-details p {
+    background-color: aliceblue;
+    height: 30vh;
+}
+
+.note-details .close-btn {
+    position: fixed;
+    right: 350px;
+    bottom: 0;
+
+    font-size: 1.2rem;
+}
+
+.note-details .close-btn:hover {
+    cursor: pointer;
 }

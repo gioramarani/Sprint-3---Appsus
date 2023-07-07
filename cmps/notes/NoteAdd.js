@@ -16,28 +16,25 @@ export default {
                 <input v-else type="text" class="txt-input"
                 placeholder="Take a note..." v-model="txt"/>
 
-                <span v-if="(todoLines[0].txt)" @click="addTodoLine"
-                 class="material-symbols-outlined add-todo-line">add</span>
+               
               
                
                 
-                <button class="material-symbols-outlined">check_box</button>
+                <button  class="material-symbols-outlined">check_box</button>
+                <section class="feature-btns">
+                  <a class="material-symbols-outlined" @click="toggleVideo">play_circle</a>
+                  <a class="material-symbols-outlined" @click="toggleTodo">edit_note</a>
+                  <a class="material-symbols-outlined" @click="toggleImg">image</a>
+                  
+                  <a class="material-symbols-outlined" @click="onAddColor">format_color_fill</a>
+                  <input v-if="(isBackgroundColored)" type="color" v-model="backgroundColor"
+                  @input="backgroundColor" />
+                  </section>
               </form>
 
-              <section class="features">
-                <span class="material-symbols-outlined" @click="toggleVideo">play_circle</span>
-                <span class="material-symbols-outlined" @click="toggleTodo">edit_note</span>
-                <span class="material-symbols-outlined" @click="toggleImg">image</span>
                 
-                <span class="material-symbols-outlined" @click="onAddColor">format_color_fill</span>
-                <input v-if="(isBackgroundColored)" type="color" v-model="backgroundColor"
-                @input="backgroundColor" />
-                
-               <!-- <input v-if="(isImg)" @change="onUploadImg" id="file" name="file" type="file" /> -->
-                  
-
-                
-              
+               <input v-if="(isImg)" @change="onUploadImg" id="file" name="file" type="file" />
+               
               </section>
         `,
   created() { },
@@ -53,7 +50,8 @@ export default {
       isPinned: false, //add toggle button,
       createdAt: Date.now(),
       todoLines: [
-        {txt: '', doneAt: null},
+        {txt: '', 
+        doneAt: null},
       ],
       imgUrl: '',
       videoUrl: '',
@@ -75,9 +73,7 @@ export default {
       NoteService.getYoutubeResults()
       // something//
     },
-    addTodoLine(){
-      this.todoLines.push({txt: '', doneAt: null})
-    },
+   
     toggleTodo() {
       this.isTodo = !this.isTodo
     },
@@ -147,7 +143,7 @@ export default {
       this.isImg = false
       this.isVideo = false
       this.isTodo = false
-      this.todoLineCount = []
+      this.todoLines = []
       // isPinned = false
       // style = {}
 

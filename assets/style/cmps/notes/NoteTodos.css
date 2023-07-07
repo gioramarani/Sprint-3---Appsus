@@ -6,3 +6,12 @@
     padding: 8px;
 
 }
+
+.note-todos .add-todo-line{
+    translate: 40vw -333px;
+}
+
+.note-todos .todo-input{
+    border-radius: 10px;
+    border: 1px solid lightgray;
+}

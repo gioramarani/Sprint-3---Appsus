@@ -6,13 +6,4 @@
     margin-top: 40px;
 }
 
-.note-list span {
-    translate: 0 -110%;
-    /* margin-left: 2px; */
-}
-
-.note-list span:hover {
-    cursor: pointer;
-    scale: 1.1;
-}
 

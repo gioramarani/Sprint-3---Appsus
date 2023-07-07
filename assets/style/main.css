@@ -23,6 +23,9 @@
 @import "cmps/notes/NoteVideo.css";
 @import "cmps/notes/NoteTodos.css";
 @import "cmps/notes/NoteAdd.css";
+@import "cmps/notes/NoteReminders.css";
+@import "cmps/notes/NoteArchive.css";
+@import "cmps/notes/NoteBin.css";
 /*mail*/
 @import "cmps/gmail/MailSideBar.css";
 @import "cmps/gmail/ComposeModal.css";

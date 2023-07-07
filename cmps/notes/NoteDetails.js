@@ -1,38 +1,53 @@
 // import NoteIndex from "../views/notes/NoteIndex.js"
 
+import { NoteService } from "../../services/notes/NoteService.js";
+
 export default {
   name:'NoteDetails',
   props: ['note'],
   template: `
-            <section class="note-details">
+            <section class="note-details" :class="getHidden" >
+              
               <h2>{{ note.info.title }}</h2>
-              
-              <p contenteditable="true" @blur="save" >{{ note.info.txt }}</p>
-                <!-- <RouterLink :to="/note">x</RouterLink> -->
-                <button @click="onClose">x</button>
-              
-               <!-- <RouterLink 
-                :to="/note"
-                >
-                x</RouterLink> -->
+            
+              <!-- <p contenteditable="true" @blur="save(note)" >
+                {{ note }}</p> -->
+                
+               <span @click="back" class="close-btn">close</span>
 
-                <!-- <NoteIndex/> -->
+                <!-- <span class="material-symbols-outlined" 
+                    @click="onRemoveNote(note.id)">delete</span>  -->
                 </section>
+
         `,
 created() {},
   data() {
-    return {}
-  },
-  methods: {
-    onClose() {
-      console.log('close')
-      this.$routes = '/note'
-    },
-    save() {
-      this.note.info.txt 
+    return {
+      hideDetails: false,
     }
   },
-  computed: {},
+  methods: {
+    save(ev) {
+      console.log(ev);
+      console.log(this.note);
+      NoteService.save(this.note)
+         .then(() => {
+         console.log(this.note);
+          this.$emit('SaveNewTxt' ,this.note) 
+    })
+    },
+    back() {
+      console.log('back')
+      this.hideDetails= true
+      this.$router.push('/note')
+      this.$emit('close')
+    }
+  },
+  computed: {
+    getHidden() {
+      if(this.hideDetails) return 'hidden'
+    }
+  },
 components:{
       // NoteIndex,
 },
