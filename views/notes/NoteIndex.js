@@ -2,6 +2,7 @@ import { NoteService } from '../../services/notes/NoteService.js'
 // import { showSuccessMsg, showErrorMsg } from '../services/event-bus.service.js'
 
 
+
 import NoteList from '../../cmps/notes/NoteList.js'
 import NoteAdd from '../../cmps/notes/NoteAdd.js'
 import NoteSideBar from '../../cmps/notes/NoteSideBar.js'

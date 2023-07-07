@@ -13,10 +13,7 @@ export default {
               <p contenteditable="true" @blur="save(note)" >
                 {{ note }}</p>
                 
-                <section class="close-btn">
-               <RouterLink to="/note"
-                @click="back">close</RouterLink>
-                </section>
+               <span @click="back" class="close-btn">close</span>
 
                 <span class="material-symbols-outlined" 
                     @click="onRemoveNote(note.id)">delete</span> 
@@ -40,7 +37,9 @@ created() {},
     })
     },
     back() {
+      console.log('back')
       this.hideDetails= true
+      this.$router.push('/note')
       // this.$emit('close')
     }
   },

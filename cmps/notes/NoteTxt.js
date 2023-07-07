@@ -6,7 +6,7 @@ export default {
   template: `
 
             <article class="note-txt" :style="{color: note.style.backgroundColor}">
-                <!-- <pre>{{ note }}</pre> -->
+               
                 <h2>{{ note.info.title }}</h2>
                 <!-- <h4 @click="onEditNote(note.id)">{{ note.info.txt }}</h4> -->
                 <p @click="toDetails(note.id)"> {{ note.info.txt }}</p>
