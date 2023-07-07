@@ -3,6 +3,7 @@ import MailList from "../../cmps/gmail/MailList.js"
 import MailSideBar from "../../cmps/gmail/MailSideBar.js"
 import MailComposeModal from "../../cmps/gmail/MailComposeModal.js"
 import MailSearchBar from "../../cmps/gmail/MailSearchBar.js"
+import EmailDetails from "./EmailDetails.js"
 import { utilService } from "../../services/util.service.js"
 
 export default {
@@ -13,6 +14,7 @@ export default {
     MailSideBar,
     MailComposeModal,
     MailSearchBar,
+    EmailDetails
   },
   template: `
           <MailSearchBar 
@@ -27,7 +29,7 @@ export default {
           @update="update" 
           v-if="$route.name === 'email'"
           @remove="removeMail"/>
-          <RouterView v-else />
+          <RouterView v-else :mails="mails"/>
           <MailComposeModal
             v-if="showComposeModal"
             @close-compose-modal="showComposeModal = false"
@@ -48,7 +50,7 @@ export default {
       showComposeModal: false,
       gFilterBy: {
         txt: "",
-        status: "",
+        status: "inbox",
       },
       loggedinUser: {
         email: 'gaash@gmail.com',
@@ -129,7 +131,7 @@ export default {
           case "sent":
             filteredMails = filteredMails.filter(
               (mail) =>
-                mail.from === this.loggedinUser.email && mail.sentAt
+                mail.isSent === true && mail.sentAt !== null
             )
             break
           case "trash":
@@ -140,7 +142,7 @@ export default {
           case "draft":
             filteredMails = filteredMails.filter(
               (mail) =>
-                mail.from === this.loggedinUser.fullname && mail.isSent === false
+                mail.sentAt !== null && mail.isSent === false && mail.from === this.loggedinUser.fullname
             )
             break
         }

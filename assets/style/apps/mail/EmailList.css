@@ -11,14 +11,6 @@
   margin: 0;
 }
 
-.actions {
-  position: absolute;
-  display: flex;
-  width: 30px;
-  right: 10%;
-  opacity: 0;
-}
-
 .mail-preview:hover .actions {
   opacity: 1;
 }
@@ -35,6 +27,19 @@
   justify-content: space-between;
   margin: 0;
   padding: 0.6255rem;
+}
+
+.mail-preview .actions i {
+  position: relative;
+  display: flex;
+  gap: 15px;
+  right: 6.25rem;
+  width: 30px;
+  opacity: 0;
+}
+
+.mail-preview:hover .actions i {
+  opacity: 1;
 }
 
 .mail-index .mail-preview i {

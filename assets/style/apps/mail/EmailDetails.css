@@ -1,10 +1,23 @@
 .mail-details-container {
+  display: flex;
+  flex-direction: column;
   background-color: white;
-  border: 1px solid #ddd;
-  border-radius: 4px;
+  border-radius: 15px;
   padding: 20px;
   margin: 10px;
   box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+  margin-block-start: 2.3%;
+  flex-shrink: 0;
+}
+
+.mail-details-container .actions {
+  display: flex;
+  gap: 25px;
+  margin-block-end: 2.5rem;
+}
+
+.mail-details-container .actions span:first-child {
+  margin-inline-end: 20px;
 }
 
 .mail-details-container h2 {
@@ -20,18 +33,4 @@
 .mail-details-container h4 {
   font-size: 14px;
   margin-bottom: 20px;
-}
-
-.mail-details-container button {
-  padding: 8px 16px;
-  background-color: #007bff;
-  color: white;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  font-size: 14px;
-}
-
-.mail-details-container button:hover {
-  background-color: #0056b3;
 }

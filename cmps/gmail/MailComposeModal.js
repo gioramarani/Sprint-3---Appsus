@@ -6,13 +6,14 @@ export default {
             <div class="email-compose-modal" v-if="mail">
                 <div class="compose-header">New Message
                     <span 
-                    class="material-symbols-outlined close-button"        @click="closeComposeModal">close
+                    class="material-symbols-outlined close-button"        
+                    @click="closeComposeModal">close
                     </span>
                 </div>
                 <input type="text" v-model="mail.to" @blur="update" class="compose-input compose-to" placeholder="Recipients">
                 <input type="text" v-model="mail.subject" class="compose-input compose-subject" placeholder="Subject">
                 <textarea v-model="mail.body" class="compose-body"></textarea>
-                <button class="compose-button">Send</button>
+                <button class="compose-button" @click="send">Send</button>
             </div>
     `,
     data() {
@@ -46,6 +47,14 @@ export default {
                     this.mail = mail
                 })
         },
+        send() {
+            this.mail.isSent = true
+            emailService.save(this.mail)
+                .then(mail => {
+                    this.mail = mail
+                })
+            console.log('mail', this.mail)
+        }
 
     },
 

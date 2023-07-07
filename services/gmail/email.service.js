@@ -20,6 +20,7 @@ const gEmail = [{
     sentAt: 1551133930594,
     removedAt: null,
     isSent: false,
+    isStarred: false,
     from: 'momo@momo.com',
     to: 'gaash@gmail.com'
 },
@@ -30,6 +31,7 @@ const gEmail = [{
     isRead: false,
     sentAt: 1551133930594,
     removedAt: null,
+    isStarred: false,
     isSent: false,
     from: 'momo@momo.com',
     to: 'gaash@gmail.com'
@@ -41,6 +43,7 @@ const gEmail = [{
     isRead: false,
     sentAt: 1551133930594,
     removedAt: null,
+    isStarred: false,
     isSent: false,
     from: 'momo@momo.com',
     to: 'gaash@gmail.com'
@@ -108,6 +111,7 @@ function getEmptyMail() {
         isRead: false,
         sentAt: Date.now(),
         removedAt: null,
+        isStarred: false,
         isSent: false,
         from: loggedinUser.fullname,
         to: '',
