@@ -9,4 +9,33 @@ width: 70vw;
 box-shadow: 0 0 0 100vh #d3d3d382;
 border-radius: 0.8rem;
 padding: 1rem;
+
+visibility: visible;
+    opacity: 1;
+
+transition: 0.5s;
+}
+
+.hidden {
+visibility: hidden;
+opacity: 0;
+}
+
+.note-details .title-container {
+    background-color: green;
+    /* border-radius: 15px; */
+    /* width: 70vw; */
+
+}
+
+.note-details p {
+    background-color: aliceblue;
+    height: 30vh;
+}
+
+.note-details .close-btn {
+    position: fixed;
+    right: 30px;
+
+    font-size: 1.2rem;
 }

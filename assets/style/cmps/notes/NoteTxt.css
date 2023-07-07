@@ -6,3 +6,9 @@
     padding: 8px;
 
 }
+
+.note-txt .blur {
+    filter: blur(20px);
+    /* pointer-events: none; */
+    /* user-select: none; */
+}
