@@ -6,17 +6,17 @@ export default {
   name:'NoteDetails',
   props: ['note'],
   template: `
-            <section class="note-details" v-if="(!hideDetails)" >
-              <section class="title-container">
-              <h2>{{ note }}</h2>
-              </section>
-              <p contenteditable="true" @blur="save(note)" >
-                {{ note }}</p>
+            <section class="note-details" :class="getHidden" >
+              
+              <h2>{{ note.info.title }}</h2>
+            
+              <!-- <p contenteditable="true" @blur="save(note)" >
+                {{ note }}</p> -->
                 
                <span @click="back" class="close-btn">close</span>
 
-                <span class="material-symbols-outlined" 
-                    @click="onRemoveNote(note.id)">delete</span> 
+                <!-- <span class="material-symbols-outlined" 
+                    @click="onRemoveNote(note.id)">delete</span>  -->
                 </section>
 
         `,
@@ -27,6 +27,9 @@ created() {},
     }
   },
   methods: {
+    showPopup() {
+      this.hideDetails = false
+    },
     save(ev) {
       console.log(ev);
       console.log(this.note);
@@ -40,10 +43,14 @@ created() {},
       console.log('back')
       this.hideDetails= true
       this.$router.push('/note')
-      // this.$emit('close')
+      this.$emit('close')
     }
   },
-  computed: {},
+  computed: {
+    getHidden() {
+      if(this.hideDetails) return 'hidden'
+    }
+  },
 components:{
       // NoteIndex,
 },

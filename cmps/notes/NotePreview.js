@@ -14,10 +14,10 @@ export default {
                     :note="note"
                    
                     
-                />
-                <span class="material-symbols-outlined" 
-                    @click="onRemoveNote(note.id)">delete</span> 
-                </section>
+                    />
+                    <span class="material-symbols-outlined delete" 
+                        @click="onRemoveNote(note.id)">delete</span> 
+                    </section>
         `,
 created() {},
   data() {

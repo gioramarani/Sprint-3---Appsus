@@ -9,6 +9,7 @@
 
 .note-txt .blur {
     filter: blur(20px);
+    background-color: aqua;
     /* pointer-events: none; */
     /* user-select: none; */
 }

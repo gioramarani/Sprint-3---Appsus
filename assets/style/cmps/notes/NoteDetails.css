@@ -6,12 +6,12 @@ transform: translate(-50%, -50%);
 background: lightblue;
 height: 45vh;
 width: 70vw;
-box-shadow: 0 0 0 100vh #d3d3d382;
+box-shadow: 0 0 0 100vh #fff9f9db;
 border-radius: 0.8rem;
 padding: 1rem;
 
 visibility: visible;
-    opacity: 1;
+opacity: 12;
 
 transition: 0.5s;
 }
@@ -21,7 +21,7 @@ visibility: hidden;
 opacity: 0;
 }
 
-.note-details .title-container {
+.note-details h2 {
     background-color: green;
     /* border-radius: 15px; */
     /* width: 70vw; */
@@ -35,7 +35,12 @@ opacity: 0;
 
 .note-details .close-btn {
     position: fixed;
-    right: 30px;
+    right: 350px;
+    bottom: 0;
 
     font-size: 1.2rem;
+}
+
+.note-details .close-btn:hover {
+    cursor: pointer;
 }

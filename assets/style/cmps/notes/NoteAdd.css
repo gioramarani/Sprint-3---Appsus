@@ -10,7 +10,8 @@
     border: 1px solid black;
     border-radius: 10px;
     box-shadow: 1px 1px 4px 5px lightgray;
-    
+    color: black;
+
     margin-top: 20px;
     margin-bottom: 2px;
     position: relative;
@@ -24,39 +25,35 @@
     width: max-content;
 }
 
-.note-add .add-todo-line{
-    translate: 650% -190%;
-}
+
 
 .note-add .title-input{
     border-radius: 10px;
     border: 1px solid lightgray;
+    
 }
 
 .note-add .txt-input{
     border-radius: 10px;
     border: 1px solid lightgray;
 }
-.note-add .todo-input{
-    border-radius: 10px;
-    border: 1px solid lightgray;
+
+
+.note-add .feature-btns {
+    translate: 15% -90%;
 }
 
-
-
-.note-add .features {
-    display: flex;
-    gap: 10px;
-    margin-inline-start: 50vw;
-    translate: -18% -160%;
+.note-add a {
+    margin-inline-start: 5px;
 }
 
-.note-add span:hover {
+.note-add a:hover {
     scale: 1.1;
     cursor: pointer;
 }
 
 .note-add button:hover {
-    scale: 1.04;
+    scale: 1.1;
 }
+
 
