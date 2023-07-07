@@ -2,7 +2,6 @@
     
     display: flex;
     flex-direction: column;
-    font-size: 0.9125rem;
     margin-block-start: 2rem;
     background-color: white;
     grid-area: 1/1/4/1;
@@ -19,17 +18,29 @@
   } */
 
   .note-sidebar section {
-    font-size: 1em;
+    display: flex;
+
     padding: 0.5em;
-    border: 1px solid rgb(238, 243, 249);
-    border-radius: 25px;
+    border: 1px solid transparent;
+    border-radius: 0 25px 25px 0;
+
+    height: 48px;
+    min-width: 48px;
+    width: 100%;
+    overflow: hidden;
+
+    line-height: 1.25rem;
+    font-size: 0.875rem;
     font-weight: 500;
     font-family: roboto;
+
+    align-items: center;
+    
   }
 
   .note-sidebar .material-symbols-outlined {
     margin-inline-end: 1em;
-    margin-inline-start: 0.5em;
+    margin-inline-start: 12px;
     /* margin-top: 0.9em; */
   }
 
@@ -38,8 +49,12 @@
     cursor: pointer;
   }
 
-  .note-sidebar span {
-    translate: 0 6px;
-    /* top: 10px; */
+  /* .note-sidebar span {
+   
+    margin-inline-end: 20px;
+  } */
+
+   .note-sidebar .clicked {
+    background-color: var(--clr1);
   }
  

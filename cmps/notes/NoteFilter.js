@@ -4,7 +4,7 @@ export default {
   template: `
             <form class="note-filter" >
                 <input type="text" placeholder="Search" @click="onFilterBy" />
-                <span class="material-symbols-outlined">
+                <span class="material-symbols-outlined search-btn">
                 search
                 </span>
             </form>

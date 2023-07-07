@@ -9,3 +9,11 @@
   font-family: roboto;
   src: url("/fonts/Roboto-Regular.ttf");
 }
+
+
+:root {
+    --clr1: #feefc3;  
+    /* onClick noteSideBar */
+    --clr2: #f1f3f4;
+
+}

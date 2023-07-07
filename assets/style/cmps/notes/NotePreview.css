@@ -25,8 +25,19 @@
     right: 5%;
     bottom: 2%;
     position: absolute;
-    
 }
+
+.note-preview .pin {
+    right: 20%;
+    bottom: 2%;
+    position: absolute;
+}
+
+/* .note-preview .pin {
+    right: 20%;
+    bottom: 2%;
+    position: absolute;
+} */
 
 .note-preview span:hover {
     cursor: pointer;
