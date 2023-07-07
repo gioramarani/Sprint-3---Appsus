@@ -21,7 +21,7 @@ const gEmail = [{
     removedAt: null,
     isSent: false,
     from: 'momo@momo.com',
-    to: 'user@appsus.com'
+    to: 'gaash@gmail.com'
 },
 {
     id: 'e102',
@@ -32,7 +32,7 @@ const gEmail = [{
     removedAt: null,
     isSent: false,
     from: 'momo@momo.com',
-    to: 'user@appsus.com'
+    to: 'gaash@gmail.com'
 },
 {
     id: 'e103',
@@ -43,7 +43,7 @@ const gEmail = [{
     removedAt: null,
     isSent: false,
     from: 'momo@momo.com',
-    to: 'user@appsus.com'
+    to: 'gaash@gmail.com'
 }
 ]
 

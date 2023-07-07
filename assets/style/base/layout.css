@@ -3,8 +3,6 @@
   display: grid;
   grid-template-rows: 5rem 1fr;
   margin: 0 auto;
-  /* padding-left: 1.6rem;
-    padding-right: 1.6rem; */
 }
 /* 
 .main-layout > * {

@@ -2,7 +2,7 @@ import { emailService } from "../../services/gmail/email.service.js"
 
 export default {
     template: `
-        <section class="mail-details" v-if="mail">
+        <section class="mail-details-container" v-if="mail">
             <h2>{{ mail.subject }} </h2>
             <h3>{{ mail.from }} </h3>
             <h4>{{ mail.body }}</h4>

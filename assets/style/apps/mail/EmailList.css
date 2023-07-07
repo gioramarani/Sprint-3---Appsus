@@ -23,10 +23,15 @@
   opacity: 1;
 }
 
+.mail-preview .from {
+  width: 9.0625rem;
+}
+
 .mail-index .mail-preview {
   display: flex;
   padding: 0 1rem;
   align-items: center;
+  flex-wrap: wrap;
   justify-content: space-between;
   margin: 0;
   padding: 0.6255rem;
@@ -47,8 +52,17 @@
   font-family: roboto;
   font-size: 0.8125rem;
   color: var(--main-clr2);
+  margin: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .mail-preview.read {
   background-color: var(--main-clr1);
+}
+
+span.material-symbols-outlined {
+  margin: 0;
+  font-size: 20px;
 }

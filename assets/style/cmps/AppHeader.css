@@ -1,36 +1,33 @@
 .app-header {
   display: flex;
   align-items: center;
-  background-color: var(--clr5);
-  color: var(--secondary-clr1);
+  background-color: #f8f8f8;
+  color: #333;
   padding: 1em;
-}
-
-@media (max-width: 720px) {
-  .app-header {
-    background-color: var(--clr3);
-    color: var(--secondary-clr2);
-  }
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .app-header nav {
   display: flex;
   margin: 0;
-  height: 1em;
+  gap: 2rem;
+  font-family: opensans;
 }
 
 .app-header h1 {
   margin: 0;
   margin-inline-end: auto;
+  font-size: 1.2em;
+  font-weight: bold;
+  color: #555;
 }
-
 
 .app-header .note-search {
   margin-inline: 50vw;
-    translate: -50%;
+  translate: -50%;
 
-    margin-top: 20px;
-    position: relative;
+  margin-top: 20px;
+  position: relative;
 }
 
 .app-header .note-search span {
@@ -40,4 +37,3 @@
   top: 12px;
   color: aliceblue;
 }
-

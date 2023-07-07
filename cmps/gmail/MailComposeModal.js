@@ -4,11 +4,15 @@ export default {
     name: 'MailComposeModal',
     template: `
             <div class="email-compose-modal" v-if="mail">
-                <div class="">New Message</div>
+                <div class="compose-header">New Message
+                    <span 
+                    class="material-symbols-outlined close-button"        @click="closeComposeModal">close
+                    </span>
+                </div>
                 <input type="text" v-model="mail.to" @blur="update" class="compose-input compose-to" placeholder="Recipients">
                 <input type="text" v-model="mail.subject" class="compose-input compose-subject" placeholder="Subject">
                 <textarea v-model="mail.body" class="compose-body"></textarea>
-                <button @click="closeComposeModal" class="compose-button">Send</button>
+                <button class="compose-button">Send</button>
             </div>
     `,
     data() {

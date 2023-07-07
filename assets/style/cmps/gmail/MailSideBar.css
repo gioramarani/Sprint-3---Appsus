@@ -3,7 +3,6 @@
   flex-direction: column;
   font-size: 0.8125rem;
   margin-block-start: 2rem;
-  /* gap: 15px; */
 }
 
 .mail-sidebar .icon {
@@ -42,4 +41,8 @@
 
 .mail-sidebar .compose:hover {
   background-color: #d5ecfb;
+}
+
+.material-symbols-outlined {
+  font-size: 20px;
 }

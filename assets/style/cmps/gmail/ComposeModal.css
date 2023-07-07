@@ -1,22 +1,41 @@
 .email-compose-modal {
   width: 500px;
   height: 610px;
-  padding: 20px;
-  border-radius: 5px;
   background-color: rgb(255, 255, 255);
   position: fixed;
+  border-radius: 5px;
   bottom: 0;
   right: 3%;
   z-index: 5;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 }
 
+.compose-header {
+  display: flex;
+  align-items: center;
+  background-color: #eaf1fb;
+  padding-inline-start: 4%;
+  height: 40px;
+  font-family: roboto, sans-serif;
+  font-size: 14px;
+  color: rgb(4, 30, 73);
+  border-top-right-radius: 5px;
+  border-top-left-radius: 5px;
+}
+
+.compose-header .close-button {
+  color: #888;
+  cursor: pointer;
+  margin-inline-start: auto;
+  margin-inline-end: 2%;
+}
+
 .compose-input {
   width: 100%;
-  padding: 10px;
-  margin-bottom: 10px;
+  padding-inline-start: 4%;
   border: 1px solid #ccc;
   border: none;
+  height: 40px;
   border-bottom: 1px solid #e0e0e0;
   outline: 0px none transparent;
 }

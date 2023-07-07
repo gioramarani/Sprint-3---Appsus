@@ -1,0 +1,37 @@
+.mail-details-container {
+  background-color: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 20px;
+  margin: 10px;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.mail-details-container h2 {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.mail-details-container h3 {
+  font-size: 16px;
+  margin-bottom: 5px;
+}
+
+.mail-details-container h4 {
+  font-size: 14px;
+  margin-bottom: 20px;
+}
+
+.mail-details-container button {
+  padding: 8px 16px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.mail-details-container button:hover {
+  background-color: #0056b3;
+}

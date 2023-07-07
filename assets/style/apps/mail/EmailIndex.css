@@ -1,15 +1,18 @@
 .mail-index {
   display: grid;
-  grid-template-columns: 225px 1fr;
-  height: 100%;
+  grid-template-columns: 225px auto;
+  min-height: 100vh;
   background-color: #f7f8fc;
 }
 
-.mail-index .mail-preview span {
+.mail-index .mail-preview .subject-body {
   display: flex;
-  flex-basis: 20rem;
-  justify-content: start;
-  gap: 1em;
+  flex: 3;
+  width: 75%;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 0.25em;
+  /* margin-inline-start: 4rem; */
 }
 
 .mail-index ul {
