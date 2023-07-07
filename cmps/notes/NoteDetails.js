@@ -27,9 +27,6 @@ created() {},
     }
   },
   methods: {
-    showPopup() {
-      this.hideDetails = false
-    },
     save(ev) {
       console.log(ev);
       console.log(this.note);
