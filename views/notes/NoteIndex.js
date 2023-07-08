@@ -1,4 +1,4 @@
-import { NoteService } from '../../services/notes/noteService.js'
+import { noteService } from '../../services/notes/noteService.js'
 // import { showSuccessMsg, showErrorMsg } from '../services/event-bus.service.js'
 
 
@@ -33,7 +33,7 @@ export default {
         </section>
         `,
     created() {
-            NoteService.query()
+            noteService.query()
             .then(notes => {
                 this.notes = notes
            })
@@ -50,7 +50,7 @@ export default {
             // note.info.txt = txt
             // note.type = type
             // console.log(note)
-            NoteService.save(note)
+            noteService.save(note)
                 .then(savedNote => {
                     this.notes.push(savedNote)
                     console.log(this.notes)
@@ -61,7 +61,7 @@ export default {
             //         console.log(this.notes)
         },
         removeNote(noteId) {
-            NoteService.remove(noteId)
+            noteService.remove(noteId)
                 .then(() => {
                     const idx = this.notes.findIndex(note => note.id === noteId)
                     this.notes.splice(idx, 1)
