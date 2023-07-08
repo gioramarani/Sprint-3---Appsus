@@ -1,4 +1,4 @@
-import NoteDetails from './NoteDetails.js'
+import NoteDetails from '/NoteDetails.js'
 
 export default {
   name:'NoteTodos',

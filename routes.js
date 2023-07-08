@@ -1,15 +1,15 @@
-import HomePage from './views/HomePage.js'
-import AboutUs from './views/AboutUs.js'
+import HomePage from '/views/HomePage.js'
+import AboutUs from '/views/AboutUs.js'
 
-import NoteIndex from './views/notes/NoteIndex.js'
-import NoteDetails from './cmps/notes/NoteDetails.js'
-import NoteList from './views/notes/NoteList.js'
-import NoteArchive from './cmps/notes/NoteArchive.js'
-import NoteBin from './cmps/notes/NoteBin.js'
-import NoteReminders from './cmps/notes/NoteReminders.js'
+import NoteIndex from '/views/notes/NoteIndex.js'
+import NoteDetails from '/cmps/notes/NoteDetails.js'
+import NoteList from '/views/notes/NoteList.js'
+import NoteArchive from '/cmps/notes/NoteArchive.js'
+import NoteBin from '/cmps/notes/NoteBin.js'
+import NoteReminders from '/cmps/notes/NoteReminders.js'
 
-import EmailIndex from './views/gmail/EmailIndex.js'
-import EmailDetails from './views/gmail/EmailDetails.js'
+import EmailIndex from '/views/gmail/EmailIndex.js'
+import EmailDetails from '/views/gmail/EmailDetails.js'
 // import NoteReminders from './cmps/notes/NoteReminders.js'
 
 

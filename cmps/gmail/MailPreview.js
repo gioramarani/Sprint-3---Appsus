@@ -1,4 +1,4 @@
-import MailSideBar from "./MailSideBar.js"
+import MailSideBar from "/MailSideBar.js"
 import { utilService } from "../../services/util.service.js"
 
 export default {
