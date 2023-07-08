@@ -6,8 +6,9 @@
   padding: 20px;
   margin: 10px;
   box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
-  margin-block-start: 2.3%;
+  margin-block-start: 30px;
   flex-shrink: 0;
+  width: 98%;
 }
 
 .mail-details-container .actions {
@@ -16,8 +17,22 @@
   margin-block-end: 2.5rem;
 }
 
+.mail-details-container .actions span {
+  cursor: pointer;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .mail-details-container .actions span:first-child {
   margin-inline-end: 20px;
+}
+
+.mail-details-container .actions span:hover {
+  background-color: rgb(227, 227, 227);
+  border-radius: 50%;
 }
 
 .mail-details-container h2 {

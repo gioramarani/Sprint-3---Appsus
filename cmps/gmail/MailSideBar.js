@@ -1,56 +1,119 @@
+import { labelService } from "../../services/gmail/label.service.js"
+import { utilService } from "../../services/util.service.js"
+
 export default {
   name: 'MailSideBar',
   props: ['mail'],
   template: `
       <div class="mail-sidebar">
-      <div class="compose" @click="composeEmail"><div class="material-symbols-outlined">
-          edit
-          </div >Compose</div>
-          <div class="mail-sidebar">
-      <div
-        class="icon inbox"
-        :class="{ active: selectedFilter === 'inbox' }"
-        @click="selectFilter('inbox')"
-      >
-        <span class="material-symbols-outlined">inbox</span>Inbox
+        <section class="filters">
+          <div class="compose" @click="composeEmail"><div class="material-symbols-outlined">
+              edit
+              </div >Compose</div>
+              <div class="mail-sidebar">
+          <div
+            class="icon inbox"
+            :class="{ active: selectedFilter === 'inbox' }"
+            @click="selectFilter('inbox')"
+          >
+            <span class="material-symbols-outlined">inbox</span>Inbox
+          </div>
+          <div
+            class="icon starred"
+            :class="{ active: selectedFilter === 'starred' }"
+            @click="selectFilter('starred')"
+          >
+            <span class="material-symbols-outlined">star</span>Starred
+          </div>
+          <div
+            class="icon send"
+            :class="{ active: selectedFilter === 'sent' }"
+            @click="selectFilter('sent')"
+          >
+            <span class="material-symbols-outlined">send</span>Sent
+          </div>
+          <div
+            class="icon draft"
+            :class="{ active: selectedFilter === 'draft' }"
+            @click="selectFilter('draft')"
+          >
+            <span class="material-symbols-outlined">draft</span>Draft
+          </div>
+          <div
+            class="icon delete"
+            :class="{ active: selectedFilter === 'trash' }"
+            @click="selectFilter('trash')"
+          >
+            <span class="material-symbols-outlined">delete</span>Thrash
+          </div>
+        </div>
+      </section>
+      <section class="labels">
+          <div class="add-label">       
+            <h3>Labels</h3>
+            <span  
+            @click="addLabel" class="material-symbols-outlined">add</span>
+          </div>
+            <div v-if="isAddingLabel">
+              <input 
+              type="text" 
+              v-model="newLabel"       placeholder="Enter label name">
+            <button 
+              @click="saveLabel">
+                Save
+            </button>
+            </div>
+ 
+            <div 
+            v-for="label in labels" 
+            :key="label.id" 
+            class="label-div"
+            :style="{ backgroundColor: labelBackgroundColor(label) }">
+        <span class="material-symbols-outlined">Label</span>{{ label.label }}
+        <span class="material-symbols-outlined label-options" @click="showLabelOptions(label)">
+          more_vert
+        </span>
+        <div v-if="showOptions === label.id" class="options-modal">
+          <div class="color-options">
+            <div
+              v-for="color in pastelColors"
+              :key="color"
+              class="color-option"
+              :style="{ backgroundColor: color }"
+              @click="handleColorSelection(label, color)"
+            ></div>
+          </div>
+          <button @click="removeLabel(label)">Remove Label</button>
+        </div>
       </div>
-      <div
-        class="icon starred"
-        :class="{ active: selectedFilter === 'starred' }"
-        @click="selectFilter('starred')"
-      >
-        <span class="material-symbols-outlined">star</span>Starred
-      </div>
-      <div
-        class="icon send"
-        :class="{ active: selectedFilter === 'sent' }"
-        @click="selectFilter('sent')"
-      >
-        <span class="material-symbols-outlined">send</span>Sent
-      </div>
-      <div
-        class="icon draft"
-        :class="{ active: selectedFilter === 'draft' }"
-        @click="selectFilter('draft')"
-      >
-        <span class="material-symbols-outlined">draft</span>Draft
-      </div>
-      <div
-        class="icon delete"
-        :class="{ active: selectedFilter === 'trash' }"
-        @click="selectFilter('trash')"
-      >
-        <span class="material-symbols-outlined">delete</span>Thrash
-      </div>
-      </div>
-      </div>
+    </section>
+    </div>
       `,
   data() {
     return {
-      selectedFilter: '',
+      selectedFilter: 'inbox',
+      selectedLabel: '',
+      isAddingLabel: false,
+      labels: [],
+      newLabel: '',
+      showOptions: null,
+      pastelColors: ['#FAD2E1', '#F9E2D2', '#F9EFCB', '#D2F9E3', '#D2F3F9', '#D2DFF9', '#E0D2F9', '#F2D2F9', '#F9D2E8', '#F9D2D2'],
+
     }
   },
+  created() {
+    labelService.query()
+      .then(labels => {
+        this.labels = labels
+      })
+
+  },
   computed: {
+    labelBackgroundColor() {
+      return function (label) {
+        return label.backgroundColor
+      }
+    }
   },
   methods: {
     composeEmail() {
@@ -60,6 +123,56 @@ export default {
       this.selectedFilter = filter
       this.$emit('filter-change', filter)
     },
+    selectLabel(label) {
+      this.selectedLabel = label
+      this.$emit('label-change', label)
+    },
+    addLabel() {
+      this.isAddingLabel = true
+    },
+    saveLabel() {
+      if (this.newLabel) {
+        const label = { label: this.newLabel }
+        labelService
+          .save(label)
+          .then(() => {
+            this.newLabel = ''
+            this.isAddingLabel = false
+            this.labels.push(label)
+          })
+          .catch(error => {
+            console.log(error)
+          })
+      }
+    },
+    removeLabel(label) {
+      labelService
+        .remove(label.id)
+        .then(() => {
+          const index = this.labels.findIndex(l => l.id === label.id)
+          if (index !== -1) {
+            this.labels.splice(index, 1)
+          }
+        })
+        .catch(error => {
+          console.log(error)
+        })
+    },
+    showLabelOptions(label) {
+      if (this.showOptions === label.id) {
+        this.showOptions = null
+      } else {
+        this.showOptions = label.id
+      }
+    },
+    pickBackgroundColor(color) {
+      this.selectedLabel.backgroundColor = color
+    },
+    handleColorSelection(label, color) {
+      label.backgroundColor = color
+      labelService.save(label)
+        .catch(error => console.log(error))
+    }
 
   }
 }

@@ -6,14 +6,17 @@ export default {
     template: `
         <section class="mail-details-container" v-if="mail">
             <section class="actions">
-                    <span class="material-symbols-outlined" @click="returnToList">
+                    <span class="material-symbols-outlined" @click="returnToList"
+                    title="Back">
                         arrow_back
                     </span>
                     <span class="material-symbols-outlined"
-                    @click="removeMail">
+                    @click="removeMail"
+                    title="Delete">
                         delete
                     </span>
-                    <span class="material-symbols-outlined">
+                    <span class="material-symbols-outlined"
+                    title="Mark as unread">
                         mail
                     </span>
             </section>

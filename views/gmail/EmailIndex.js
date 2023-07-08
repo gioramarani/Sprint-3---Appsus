@@ -23,12 +23,14 @@ export default {
           <section class="mail-index">
           <MailSideBar 
           @open-compose-modal="composeEmail"
-          @filter-change="handleFilterChange"/>
+          @filter-change="handleFilterChange"
+          @label-change="handleLabelChange"/>
           <MailList 
           :mails = "displayMails"
           @update="update" 
           v-if="$route.name === 'email'"
-          @remove="removeMail"/>
+          @remove="removeMail"
+          @starred="starredMail"/>
           <RouterView v-else :mails="mails"/>
           <MailComposeModal
             v-if="showComposeModal"
@@ -52,6 +54,7 @@ export default {
         txt: "",
         status: "inbox",
       },
+      gLabel: '',
       loggedinUser: {
         email: 'gaash@gmail.com',
         fullname: 'Gaash Shmilovich',
@@ -94,29 +97,43 @@ export default {
           .then(() => {
             this.mails.splice(mailIdx, 1)
           })
+          .catch(error => {
+            console.log('error', error)
+          })
       }
       else
         emailService.save(mail)
           .then(() => {
-            this.mails.splice(mailIdx, 1)
+            console.log('mailIdx', mailIdx)
           })
           .catch(error => {
             console.log('Failed to remove mail:', error)
           })
     },
-    filterMails(mails, filterBy) {
-      let filteredMails = [...mails]
+    starredMail(mailId) {
+      const mailIdx = this.mails.findIndex(mail => mail.id === mailId)
+      const mail = this.mails.find(mail => mail.id === mailId)
+      mail.isStarred = !mail.isStarred
+      console.log('mailId', mailId)
+      emailService.save(mail)
+        .catch(error => {
+          console.log('Failed to remove mail:', error)
+        })
+    },
+    filterMails() {
+      let filteredMails = this.mails
+      console.log('this.mails', this.mails)
 
-      if (filterBy.txt) {
-        const regex = new RegExp(filterBy.txt, "i")
+      if (this.gFilterBy.txt) {
+        const regex = new RegExp(this.gFilterBy.txt, "i")
         filteredMails = filteredMails.filter(
           (mail) =>
             regex.test(mail.subject) || regex.test(mail.body)
         )
       }
 
-      if (filterBy.status) {
-        switch (filterBy.status) {
+      if (this.gFilterBy.status) {
+        switch (this.gFilterBy.status) {
           case "inbox":
             filteredMails = filteredMails.filter(
               (mail) =>
@@ -147,11 +164,15 @@ export default {
             break
         }
       }
+      console.log('filteredMails', filteredMails)
       return filteredMails
     },
     handleFilterChange(filter) {
       this.gFilterBy.status = filter
       console.log('Selected filter:', filter)
+    },
+    handleLabelChange(label) {
+      this.gLabel = label
     },
     search(searchResults) {
       this.searchResults = searchResults
@@ -159,7 +180,7 @@ export default {
   },
   computed: {
     filteredMails() {
-      return this.filterMails(this.mails, this.gFilterBy)
+      return this.filterMails()
     },
     displayMails() {
       if (this.searchResults && this.searchResults.length > 0) {

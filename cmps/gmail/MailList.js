@@ -13,7 +13,8 @@ export default {
            
             <MailPreview :mail="mail" 
             @click.stop="onUpdate(mail.id)" 
-            @remove="removeMail(mail.id)"/>
+            @remove="removeMail(mail.id)"
+            @star="starredMail(mail.id)"/>
             <section class="actions">
            
             </section>
@@ -35,6 +36,10 @@ export default {
         removeMail(mailId) {
             console.log('mailId', mailId)
             this.$emit('remove', mailId)
+        },
+        starredMail(mailId) {
+            this.$emit('starred', mailId)
+            console.log('hi')
         }
     },
     computed: {},

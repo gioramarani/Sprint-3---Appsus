@@ -10,9 +10,9 @@
 }
 
 .search-bar input[type="text"] {
-  /* flex: 1; */
   position: absolute;
-  left: 19%;
+  font-size: 1rem;
+  left: 230px;
   padding: 0px 15px 0px 20px;
   border: none;
   border-radius: 25px;

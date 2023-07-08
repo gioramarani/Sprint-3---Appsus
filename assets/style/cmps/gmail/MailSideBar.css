@@ -1,8 +1,7 @@
 .mail-sidebar {
   display: flex;
   flex-direction: column;
-  font-size: 0.8125rem;
-  margin-block-start: 2rem;
+  font-size: 0.875rem;
 }
 
 .mail-sidebar .icon {
@@ -11,17 +10,24 @@
   gap: 1.3em;
   cursor: pointer;
   font-family: roboto;
+  height: 32px;
+  margin-inline-end: 1.5em;
 }
 
 .mail-sidebar .icon:hover {
+  background-color: #f0f0f0;
+  border-radius: 0px 17px 17px 0px;
+}
+
+.mail-sidebar .icon.active {
   background-color: #d3e3fd;
   border-radius: 0px 17px 17px 0px;
 }
 
 .mail-sidebar .icon span {
   margin-inline-start: 23px;
-  height: 28px;
   padding-block-start: 2.3px;
+  width: fit-content;
 }
 
 .mail-sidebar .compose {
@@ -43,6 +49,30 @@
   background-color: #d5ecfb;
 }
 
-.material-symbols-outlined {
-  font-size: 20px;
+span.material-symbols-outlined {
+  font-variation-settings: "opsz" 60;
+  font-size: 30rem;
+}
+
+.mail-sidebar .labels .add-label {
+  display: flex;
+  justify-content: space-between;
+}
+
+.color-options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.color-option {
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+}
+
+.selected-label {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
 }

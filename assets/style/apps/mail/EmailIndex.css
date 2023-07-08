@@ -8,11 +8,10 @@
 .mail-index .mail-preview .subject-body {
   display: flex;
   flex: 3;
-  width: 75%;
+  width: 50rem;
   flex-direction: row;
   align-items: flex-start;
   gap: 0.25em;
-  /* margin-inline-start: 4rem; */
 }
 
 .mail-index ul {
@@ -30,4 +29,11 @@
 .mail-index li:hover {
   z-index: 1;
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.mail-preview .mail-body {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding-inline-end: 15em;
 }
