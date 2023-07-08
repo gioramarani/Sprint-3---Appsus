@@ -1,8 +1,10 @@
 export default {
-	template: `
+    template: `
         <header class="app-header">
-            <h1>AppSus</h1>
-            
+            <div class="logo">
+            <img src="../img/google.png" alt="" class="google-logo"/>
+            <h1>Google</h1>
+            </div>
             
             <nav>
                 <RouterLink to="/">Home</RouterLink>
@@ -14,12 +16,12 @@ export default {
         </header>
     `,
 
-data()  {
-    return {
-       
+    data() {
+        return {
+
+        }
+    },
+    methods: {
+
     }
-},
-methods: {
-    
-}
 }

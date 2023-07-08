@@ -5,6 +5,23 @@
   color: #333;
   padding: 1em;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding-inline: 0;
+}
+
+.app-header .logo {
+  margin: 0;
+  margin-inline-end: auto;
+  display: flex;
+  align-items: center;
+}
+
+.app-header .google-logo {
+  width: 80px;
+}
+
+.app-header .logo h1 {
+  font-family: opensans;
+  font-size: 2rem;
 }
 
 .app-header nav {
@@ -12,14 +29,11 @@
   margin: 0;
   gap: 2rem;
   font-family: opensans;
+  padding-inline-end: 1rem;
 }
 
-.app-header h1 {
-  margin: 0;
-  margin-inline-end: auto;
-  font-size: 1.2em;
-  font-weight: bold;
-  color: #555;
+.app-header nav a:hover {
+  scale: 1.2;
 }
 
 .app-header .note-search {

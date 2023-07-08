@@ -1,5 +1,7 @@
+import { labelService } from "../../services/gmail/label.service.js"
 import { emailService } from "../../services/gmail/email.service.js"
 import { utilService } from "../../services/util.service.js"
+
 
 export default {
     props: ['mails'],

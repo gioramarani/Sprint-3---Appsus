@@ -97,8 +97,7 @@ export default {
       labels: [],
       newLabel: '',
       showOptions: null,
-      pastelColors: ['#FAD2E1', '#F9E2D2', '#F9EFCB', '#D2F9E3', '#D2F3F9', '#D2DFF9', '#E0D2F9', '#F2D2F9', '#F9D2E8', '#F9D2D2'],
-
+      pastelColors: ['#FFD3C6', '#D4E8E2', '#FFEDB5', '#E8D3F0', '#FFDFE7', '#D4F0E8', '#F0D4D4', '#E2E8D4', '#FFE8D4', '#E8FFD4']
     }
   },
   created() {

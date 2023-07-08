@@ -22,7 +22,8 @@ const gEmail = [{
     isSent: false,
     isStarred: false,
     from: 'momo@momo.com',
-    to: 'gaash@gmail.com'
+    to: 'gaash@gmail.com',
+    labels: []
 },
 {
     id: 'e102',
@@ -34,7 +35,8 @@ const gEmail = [{
     isSent: false,
     isStarred: false,
     from: 'notification@example.com',
-    to: 'gaash@gmail.com'
+    to: 'gaash@gmail.com',
+    labels: []
 },
 {
     id: 'e103',
@@ -46,7 +48,9 @@ const gEmail = [{
     isSent: false,
     isStarred: false,
     from: 'events@party.com',
-    to: 'gaash@gmail.com'
+    to: 'gaash@gmail.com',
+    labels: []
+
 },
 {
     id: 'e104',
@@ -58,7 +62,9 @@ const gEmail = [{
     isSent: false,
     isStarred: false,
     from: 'reminders@company.com',
-    to: 'gaash@gmail.com'
+    to: 'gaash@gmail.com',
+    labels: []
+
 },
 {
     id: 'e106',
@@ -70,7 +76,9 @@ const gEmail = [{
     isSent: false,
     isStarred: false,
     from: 'newsletter@company.com',
-    to: 'gaash@gmail.com'
+    to: 'gaash@gmail.com',
+    labels: []
+
 },
 {
     id: 'e107',
@@ -82,7 +90,9 @@ const gEmail = [{
     isSent: false,
     isStarred: false,
     from: 'careers@company.com',
-    to: 'gaash@gmail.com'
+    to: 'gaash@gmail.com',
+    labels: []
+
 },
 {
     id: 'e108',
@@ -94,7 +104,9 @@ const gEmail = [{
     isSent: false,
     isStarred: false,
     from: 'billing@company.com',
-    to: 'gaash@gmail.com'
+    to: 'gaash@gmail.com',
+    labels: []
+
 },
 {
     id: 'e109',
@@ -106,7 +118,9 @@ const gEmail = [{
     isSent: false,
     isStarred: false,
     from: 'travel@company.com',
-    to: 'gaash@gmail.com'
+    to: 'gaash@gmail.com',
+    labels: []
+
 },
 {
     id: 'e110',
@@ -118,7 +132,9 @@ const gEmail = [{
     isSent: false,
     isStarred: false,
     from: 'updates@company.com',
-    to: 'gaash@gmail.com'
+    to: 'gaash@gmail.com',
+    labels: []
+
 },
 {
     id: 'e111',
@@ -130,7 +146,9 @@ const gEmail = [{
     isSent: false,
     isStarred: false,
     from: 'events@company.com',
-    to: 'gaash@gmail.com'
+    to: 'gaash@gmail.com',
+    labels: []
+
 },
 {
     id: 'e112',
@@ -142,7 +160,9 @@ const gEmail = [{
     isSent: false,
     isStarred: false,
     from: 'adventurer@world.com',
-    to: 'gaash@gmail.com'
+    to: 'gaash@gmail.com',
+    labels: []
+
 },
 {
     id: 'e113',
@@ -154,7 +174,9 @@ const gEmail = [{
     isSent: false,
     isStarred: false,
     from: 'volunteers@community.org',
-    to: 'gaash@gmail.com'
+    to: 'gaash@gmail.com',
+    labels: []
+
 },
 {
     id: 'e114',
@@ -166,7 +188,9 @@ const gEmail = [{
     isSent: false,
     isStarred: false,
     from: 'books@publishing.com',
-    to: 'gaash@gmail.com'
+    to: 'gaash@gmail.com',
+    labels: []
+
 },
 {
     id: 'e115',
@@ -178,7 +202,9 @@ const gEmail = [{
     isSent: false,
     isStarred: false,
     from: 'membership@books.com',
-    to: 'gaash@gmail.com'
+    to: 'gaash@gmail.com',
+    labels: []
+
 },
 {
     id: 'e116',
@@ -190,7 +216,9 @@ const gEmail = [{
     isSent: false,
     isStarred: false,
     from: 'security@company.com',
-    to: 'gaash@gmail.com'
+    to: 'gaash@gmail.com',
+    labels: []
+
 },
 ]
 
@@ -259,6 +287,8 @@ function getEmptyMail() {
         isSent: false,
         from: loggedinUser.fullname,
         to: '',
+        labels: []
+
     }
 }
 

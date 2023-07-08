@@ -34,3 +34,4 @@
 @import "apps/mail/EmailDetails.css";
 @import "apps/mail/EmailList.css";
 @import "apps/note/NoteIndex.css";
+@import "cmps/gmail/MailLabels.css";

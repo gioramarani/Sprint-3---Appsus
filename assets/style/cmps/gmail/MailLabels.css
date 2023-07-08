@@ -1,0 +1,61 @@
+.labels .add-label {
+  padding-inline: 1.5em;
+  margin-block: 1em;
+}
+
+.labels .label-div {
+  position: relative;
+  display: flex;
+  align-items: center;
+  height: 32px;
+  cursor: pointer;
+}
+
+.labels .label-div .label-options {
+  position: absolute;
+  right: 2%;
+  font-size: 25px;
+}
+
+.labels .label-div .label-options:hover {
+  scale: 1.2;
+}
+
+.labels .options-modal {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: calc(100% + 10px);
+  left: 0;
+  width: 100%;
+  padding: 10px;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  z-index: 1;
+}
+
+.labels .options-modal button {
+  padding: 8px 16px;
+  background-color: #4caf50;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  margin-top: 10px;
+}
+
+.labels .options-modal button:hover {
+  background-color: #45a049;
+}
+
+.labels .options-modal .color-options {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.labels .options-modal .color-option {
+  width: 16%;
+  height: 30px;
+  margin-bottom: 8px;
+}

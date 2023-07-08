@@ -11,7 +11,7 @@ export default {
         <article class="mail-preview" @click="navigateTo" :class="{ 'read': mail.isRead }">
             <h4>
             <i 
-            class="material-symbols-outlined" 
+            class="material-symbols-outlined star" 
             @click.stop="starredMail"
             :class="{ 'yellow-star': mail.isStarred }">
             star
