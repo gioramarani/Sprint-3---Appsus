@@ -33,17 +33,10 @@ export default {
         </section>
         `,
     created() {
-
-        NoteService.getNotesFromService()
-            .then(notes => {
-            this.notes = notes
-            if(!this.notes || !this.notes.length){
             NoteService.query()
             .then(notes => {
                 this.notes = notes
-           })}})
-               
-              
+           })
             }
         ,
     data() {

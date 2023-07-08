@@ -11,7 +11,7 @@ export default {
                 placeholder="Title" v-model="title"/> 
 
                 <input v-if="(isTodo)" v-for="line in todoLines.length" class="todo-input"
-                type="text" placeholder="List item" v-model="todoLines[0].txt"/>
+                type="text" placeholder="List item" v-model="todoLinesTxt"/>
 
                 <input v-else type="text" class="txt-input"
                 placeholder="Take a note..." v-model="txt"/>
@@ -26,9 +26,7 @@ export default {
                   <a class="material-symbols-outlined" @click="toggleTodo">edit_note</a>
                   <a class="material-symbols-outlined" @click="toggleImg">image</a>
                   
-                  <a class="material-symbols-outlined" @click="onAddColor">format_color_fill</a>
-                  <input v-if="(isBackgroundColored)" type="color" v-model="backgroundColor"
-                  @input="backgroundColor" />
+                
                   </section>
               </form>
 
@@ -49,22 +47,13 @@ export default {
       isTodo: false,
       isPinned: false, //add toggle button,
       createdAt: Date.now(),
-      todoLines: [
-        {txt: '', 
-        doneAt: null},
-      ],
+      todoLinesTxt: '',
       imgUrl: '',
       videoUrl: '',
-      isBackgroundColored: false,
-      backgroundColor: '',
-
-
     }
   },
   methods: {
-    onAddColor() {
-      this.isBackgroundColored = true
-    },
+    
     onUploadImg(ev) {
       NoteService.createImg(ev)
         .then(url => this.imgUrl = url)
@@ -111,7 +100,7 @@ export default {
           type: 'NoteTodos',
           info: {
             title: this.title,
-            todos: this.todoLines
+            todos: this.todoLinesTxt
           },
           createdAt: this.createdAt,
           isPinned: this.isPinned,

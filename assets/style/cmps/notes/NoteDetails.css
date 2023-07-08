@@ -3,15 +3,15 @@ position: fixed;
 top: 50%;
 left: 50%;
 transform: translate(-50%, -50%);
-background: lightblue;
+background: aliceblue;
 height: 45vh;
 width: 70vw;
-box-shadow: 0 0 0 100vh #fff9f9db;
+box-shadow: 0 0 0 100vh #535252f3;
 border-radius: 0.8rem;
 padding: 1rem;
 
 visibility: visible;
-opacity: 12;
+opacity: 1;
 
 transition: 0.5s;
 }
@@ -21,26 +21,78 @@ visibility: hidden;
 opacity: 0;
 }
 
-.note-details h2 {
+/* .note-details h3 {
     background-color: green;
-    /* border-radius: 15px; */
-    /* width: 70vw; */
+    border-radius: 8px 8px 0 0;
+    padding: 10px;
+    width: 70vw;
+    height: 8vh;
+   position: absolute;
+   left: 0;
+   top: -5px
+} */
 
+.note-details h2 {
+    background-color: aliceblue;
+    height: 10vh;
+    position: absolute;
+    top: 15px;
 }
 
 .note-details p {
     background-color: aliceblue;
-    height: 30vh;
+    height: 10vh;
+    margin-top: 15px;
+    position: absolute;
+    top: 50px
+}
+
+.note-details ul {
+    background-color: aliceblue;
+    height: 10vh;
+    margin-top: 15px;
+    position: absolute;
+    top: 100px
 }
 
 .note-details .close-btn {
     position: fixed;
-    right: 350px;
-    bottom: 0;
+    right:4%;
+    bottom: 4%;
 
+    padding: 5px;
     font-size: 1.2rem;
+}
+
+.note-details .pin {
+    position: fixed;
+    right:4%;
+    top: 4%;
+
+    padding: 5px;
+    font-size: 1.2rem;
+}
+
+.note-details .delete {
+    position: fixed;
+    right:12%;
+    top: 4%;
+
+    padding: 5px;
+    font-size: 1.2rem;
+}
+
+.note-details .pin:hover {
+    cursor: pointer;
+    scale: 1.1;
+}
+
+.note-details .delete:hover {
+    cursor: pointer;
+    scale: 1.1;
 }
 
 .note-details .close-btn:hover {
     cursor: pointer;
 }
+

@@ -15,7 +15,7 @@ const gNotes = [
             backgroundColor: '#00d'
         },
         info: {
-            title: '~~~I am a bug!  please fix me! or just close me for now... like they all do....',
+            title: 'Good Morning!',
             txt: 'Fullstack Me Baby!'
         }
     },
@@ -100,7 +100,6 @@ const gNotes = [
 ]
 
 export const NoteService = {
-    getNotesFromService,
     query,
     get,
     remove,
@@ -109,44 +108,17 @@ export const NoteService = {
     removeFromHardCodedList,
     createImg,
     getYoutubeResults,
-    // crateNote
 }
 
-// function getNotesFromService() {
-//     return gNotes
-// }
-
-function getNotesFromService() {
-    return Promise.resolve(gNotes)
-}
+_createNotes()
 
 function query() {
     return storageService.query(NOTE_KEY)
-        .then(notes => {
-            // if (gFilterBy.title) {
-            //     const regex = new RegExp(gFilterBy.title, 'i')
-            //     books = books.filter(book => regex.test(book.title))
-            // }
-            // if (gFilterBy.amount) {
-            //     books = books.filter(book => book.amount >= gFilterBy.amount)
-            // }
-            // if (gPageIdx !== undefined) {
-            //     const startIdx = gPageIdx * PAGE_SIZE
-            //     books = books.slice(startIdx, startIdx + PAGE_SIZE)
-            // }
-            // if (gSortBy.amount !== undefined) {
-            //     books.sort((c1, c2) => (c1.amount - c2.amount) * gSortBy.amount)
-            // } else if (gSortBy.title !== undefined) {
-            //     books.sort((c1, c2) => c1.title.localeCompare(c2.title) * gSortBy.title)
-            // }
-
-            return notes
-        })
 }
 
 function get(noteId) {
     return storageService.get(NOTE_KEY, noteId)
-            .then(note => _setNextPrevBookId(note))
+            
 }
 
 
@@ -184,19 +156,6 @@ function getEmptyNote(id = '', type = '' , info = {}) {
 //     gNotes.push(note)
 //     return Promise.resolve(gNotes)
 // }
-
-
-function _createNotes() {
-    let notes = utilService.loadFromStorage(NOTE_KEY)
-    if (!notes || !notes.length) {
-        // books = []
-        // books.push(_createBook('Harry Poter', 300))
-        // books.push(_createBook('Great Jiants', 720))
-        // books.push(_createBook('Looloo Land', 100))
-        utilService.saveToStorage(NOTE_KEY, gNotes)
-        console.log(notes)
-    }
-}
 
 function getYoutubeResults(keyword) {
     // if (!gHistoryCache.includes(keyword)) {
@@ -245,64 +204,10 @@ function createImg(ev) {
     })
 }
 
-// function _setNextPrevBookId(book) {
-//     return storageService.query(BOOK_KEY)
-//         .then(books => {
-//             const bookIdx = books.findIndex(currBook => currBook.id === book.id)
-//             book.nextBookId = books[bookIdx + 1] ? books[bookIdx + 1].id : books[0].id
-//             book.prevBookId = books[bookIdx - 1]
-//                 ? books[bookIdx - 1].id
-//                 : books[books.length - 1].id
-//             return book
-//         })
-// }
+function _createNotes() {
 
-
-
-
-// function addGoogleBook(item) {
-//     console.log(item);
-//     // const book= GoogleList.find(book=> book.id === item.id)
-//     // console.log(book);
-//     save(item)
-//     return Promise.resolve()
-//     // return save(item)
-//     //         .then(GoogleList.pop(item))   //??//
-
-// }
-
-// function addReview(bookId, review){
-//     return get(bookId).then(book => {
-//         if(!book.reviews) book.reviews = []
-//         review.id = utilService.makeId()
-//         book.reviews.push(review)
-//         return save(book)
-//     })
-// }
-
-// function removeReview(bookId, reviewId) {
-//     return get(bookId)
-//         .then(book => {
-//             const idx = book.reviews.findIndex(review => review.id === reviewId)
-//             book.reviews.splice(idx, 1)
-//             return save(book)
-//         })
-// }
-// function getFilterBy() {
-//     return { ...gFilterBy }
-// }
-
-// function setFilterBy(filterBy = {}) {
-//     if (filterBy.title !== undefined) gFilterBy.title = filterBy.title
-//     if (filterBy.listPrice.amount !== undefined) gFilterBy.amount = filterBy.listPrice.amount
-//     return gFilterBy
-// }
-
-// function getNextbookId(bookId) {
-//     return storageService.query(BOOK_KEY)
-//         .then(books => {
-//             var idx = books.findIndex(book => book.id === bookId)
-//             if (idx === books.length - 1) idx = -1
-//             return books[idx + 1].id
-//         })
-// }
+    var notes = utilService.loadFromStorage(NOTE_KEY)
+    if (!notes || !notes.length) {
+        utilService.saveToStorage(NOTE_KEY, gNotes)
+    }
+}

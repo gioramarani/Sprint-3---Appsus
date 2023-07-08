@@ -1,3 +1,5 @@
+import NoteDetails from './NoteDetails.js'
+
 export default {
   name:'NoteTodos',
   props: ['note'],
@@ -6,7 +8,7 @@ export default {
             <section class="note-todos">
               <h2>{{ note.info.title }}</h2>
               <ul >
-                <li v-for="line in lines" v-model="todoTxt" class="todo-input">
+                <li v-for="line in lines" class="todo-input" @click="toDetails">
                 {{ note.info.todos[lineNum].txt }}
                 <!-- <span v-if="(lines[0].txt)" @click="addTodoLine"
                    class="material-symbols-outlined add-todo-line">add</span> -->
@@ -31,9 +33,12 @@ created() {},
   },
   methods: {
     lineCount() {
-      return this.lines.length
-      
+      return this.lines.length 
      },
+     toDetails() {
+      console.log('open details')
+      this.$router.push('/note/' + this.note.id)
+    },
      addTodoLine(){
       this.todoLines.push({txt: '', doneAt: null})
     },
@@ -43,5 +48,7 @@ created() {},
       this.lineNum = this.lines.length
     }
   },
-components:{},
+components:{
+  NoteDetails
+},
 }

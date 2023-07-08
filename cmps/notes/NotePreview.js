@@ -19,15 +19,26 @@ export default {
                         @click="onRemoveNote(note.id)">delete</span> 
                         <span class="material-symbols-outlined pin"
                         @click="onPinNote(note.id)" >push_pin</span>
+
+                        <a class="material-symbols-outlined" @click="onAddColor">format_color_fill</a>
+                       <input v-if="(isBackgroundColored)" type="color" v-model="backgroundColor"
+                        @input="backgroundColor" />
+
                         <!-- <span class="material-symbols-outlined img"
                         @click="onAttachImg(note.id)">image</span> -->
                     </section>
         `,
 created() {},
   data() {
-    return {}
+    return {
+      isBackgroundColored: false,
+      backgroundColor: '',
+    }
   },
   methods: {
+    onAddColor() {
+      this.isBackgroundColored = true
+    },
     onRemoveNote(noteId) {
         console.log(noteId)
         this.$emit('remove', noteId)
