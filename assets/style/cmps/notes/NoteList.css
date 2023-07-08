@@ -9,7 +9,20 @@
     /* justify-content: center; */
     justify-items: center;
     justify-self: center;
+
+    position: relative;
 }
 
+.note-list .pin-title {
+    color: var(--clr3);
+    /* letter-spacing: .07272727em;
+    font-family: Roboto,Arial,sans-serif;
+    font-size: .6875rem;
+    font-weight: 500;
+    line-height: 1rem; */
+    
+    position: fixed;
+
+}
 
 

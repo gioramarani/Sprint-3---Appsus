@@ -1,12 +1,10 @@
-// import NoteIndex from "../views/notes/NoteIndex.js"
-
 import { NoteService } from "../../services/notes/noteService.js";
 
 export default {
   name:'NoteDetails',
   props: [],
   template: `
-            <section v-if="note" class="note-details"  >
+            <section v-if="note" class="note-details" :class="getHidden" >
            
               <h2>{{ note.info.title }}</h2>
             
@@ -14,7 +12,7 @@ export default {
                 {{ note.info.txt }}</p>
 
                 <span class="material-symbols-outlined pin"
-                        @click="onPinNote(note)" >push_pin</span>
+                        @click="onPinNoteToggle(note)" >push_pin</span>
                 
                <span @click="back" class="close-btn">close</span>
                
@@ -34,7 +32,8 @@ created() {
 },
   data() {
     return {
-      note: null
+      note: null,
+      hideDetails: false
     }
   },
   methods: {
@@ -48,6 +47,7 @@ created() {
     })
     },
     back() {
+      this.hideDetails = true
       console.log('back')
       this.$router.push('/note')
     },
@@ -55,10 +55,11 @@ created() {
       console.log(noteId)
       this.$emit('remove', noteId)
       this.$router.push('/note')
+      this.hideDetails = true
 
     },
-    onPinNote(note) {
-      note.isPinned= true
+    onPinNoteToggle(note) {
+      note.isPinned= !note.isPinned
       console.log(note);
     }
   },
@@ -69,6 +70,5 @@ created() {
     }
   },
 components:{
-      // NoteIndex,
 },
 }

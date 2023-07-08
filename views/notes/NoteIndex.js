@@ -17,14 +17,14 @@ export default {
             <NoteSideBar/>
             <NoteFilter
             :notes="notes"
-            
+            @filter="setFilterBy"
             />
             <NoteAdd
             @create="saveNewNote"
             />
 
             <NoteList
-            :notes="notes"
+            :notes="filteredNotes"
             @remove="removeNote"
             />
 
@@ -42,6 +42,7 @@ export default {
     data() {
         return {
             notes: [],
+            filterBy: {},
         }
     },
     methods: {
@@ -73,15 +74,29 @@ export default {
                     this.notes.splice(idx, 1)
                 })
         },
-        filterNotesBy(type) {
-            console.log(type)
-            // return this.notes.filter(note => note.type === type)
-        }
+        setFilterBy(filterBy) {
+            console.log(filterBy);
+            this.filterBy = filterBy
+        },
     },
     computed: {
         getNotes() {
             return this.notes
         },
+        filteredNotes() {
+            var filteredNotes = this.notes
+            const regex = new RegExp(this.filterBy.txt, 'i')
+            filteredNotes = filteredNotes.filter(note => regex.test(note.info.title))
+
+            if(this.filterBy.type){
+            filteredNotes = filteredNotes.filter(note => note.type === this.filterBy.type)
+            }
+            // if(this.filterBy.isPinned){
+            //     filteredNotes = filteredNotes.filter(note => note.isPinned === this.filterBy.isPinned)
+            // }
+
+            return filteredNotes 
+        }
     },
     components: {
         NoteList,

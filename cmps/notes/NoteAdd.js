@@ -82,6 +82,9 @@ export default {
             title: this.txt,
             url: this.imgUrl,
           },
+          style: {
+            backgroundColor: ''
+          },
           createdAt: this.createdAt,
           isPinned: this.isPinned,
         }
@@ -91,6 +94,9 @@ export default {
           info: {
             title: this.title,
             url: this.videoUrl,
+          },
+          style: {
+            backgroundColor: ''
           },
           createdAt: this.createdAt,
           isPinned: this.isPinned,
@@ -105,7 +111,7 @@ export default {
           createdAt: this.createdAt,
           isPinned: this.isPinned,
           style: {
-            backgroundColor: this.backgroundColor
+            backgroundColor: ''
         },
         }
       } else {
@@ -118,7 +124,7 @@ export default {
           createdAt: this.createdAt,
           isPinned: this.isPinned,
           style: {
-            backgroundColor: this.backgroundColor
+            backgroundColor: ''
         },
         }
       }
