@@ -1,6 +1,6 @@
 // import NoteIndex from "../views/notes/NoteIndex.js"
 
-import { NoteService } from "../../services/notes/NoteService.js";
+import { NoteService } from "../../services/notes/noteService.js";
 
 export default {
   name:'NoteDetails',
@@ -14,7 +14,7 @@ export default {
                 {{ note.info.txt }}</p>
 
                 <span class="material-symbols-outlined pin"
-                        @click="onPinNote(note.id)" >push_pin</span>
+                        @click="onPinNote(note)" >push_pin</span>
                 
                <span @click="back" class="close-btn">close</span>
                
@@ -34,7 +34,6 @@ created() {
 },
   data() {
     return {
-      // hideDetails: false,
       note: null
     }
   },
@@ -50,11 +49,20 @@ created() {
     },
     back() {
       console.log('back')
-      // this.hideDetails= true
       this.$router.push('/note')
-      // this.$emit('close')
+    },
+    onRemoveNote(noteId) {
+      console.log(noteId)
+      this.$emit('remove', noteId)
+      this.$router.push('/note')
+
+    },
+    onPinNote(note) {
+      note.isPinned= true
+      console.log(note);
     }
   },
+  
   computed: {
     getHidden() {
       if(this.hideDetails) return 'hidden'

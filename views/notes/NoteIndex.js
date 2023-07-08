@@ -1,4 +1,4 @@
-import { NoteService } from '../../services/notes/NoteService.js'
+import { NoteService } from '../../services/notes/noteService.js'
 // import { showSuccessMsg, showErrorMsg } from '../services/event-bus.service.js'
 
 
@@ -64,7 +64,7 @@ export default {
                 .then(() => {
                     const idx = this.notes.findIndex(note => note.id === noteId)
                     this.notes.splice(idx, 1)
-                    showSuccessMsg('Nore removed')
+                    showSuccessMsg('Note removed')
                 })
                 .catch(err => {
                     console.log(noteId)
