@@ -1,4 +1,4 @@
-import { NoteService } from "../../services/notes/NoteService.js"
+import { NoteService } from "../../services/notes/noteService.js"
 
 export default {
   name: 'NoteAdd',

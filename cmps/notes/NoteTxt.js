@@ -5,7 +5,7 @@ export default {
   props: ['note'],
   template: `
 
-            <section class="note-txt" :class="getBlur" >
+            <section class="note-txt">
                
                 <h2>{{ note.info.title }} </h2>
                 <!-- <h4 @click="onEditNote(note.id)">{{ note.info.txt }}</h4> -->
@@ -27,15 +27,11 @@ created() {},
 //       this.$router.push('/note/' + noteId)
 // },
 toDetails() {
-  this.isBlur = true
   console.log('open details')
   this.$router.push('/note/' + this.note.id)
-  this.isToDetails= true
-
 },
 fromDetails() {
   console.log('close')
-  // this.isToDetails= false
 },
 editTxt(newTxt){
   console.log(this.note);
@@ -47,9 +43,7 @@ editTxt(newTxt){
 
   },
   computed: {
-    getBlur() {
-      if(this.isBlur) return 'blur'
-    },
+   
   },
 components:{
   NoteDetails,
