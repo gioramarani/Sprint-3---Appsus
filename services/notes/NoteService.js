@@ -2,7 +2,7 @@ import { utilService } from '../util.service.js'
 import { storageService } from '../async-storage.service.js'
 
 const NOTE_KEY = 'noteDB'
-const YT_KEY = ''
+// const YT_KEY = ''
 
 
 const gNotes = [
