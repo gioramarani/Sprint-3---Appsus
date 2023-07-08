@@ -102,7 +102,7 @@ const gNotes = [
     },
 ]
 
-export const NoteService = {
+export const noteService = {
     query,
     get,
     remove,

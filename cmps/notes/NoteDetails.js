@@ -1,4 +1,4 @@
-import { NoteService } from "../../services/notes/noteService.js";
+import { noteService } from "../../services/notes/noteService.js";
 
 export default {
   name:'NoteDetails',
@@ -24,7 +24,7 @@ export default {
         `,
 created() {
    const noteId = this.$route.params.noteId 
-   NoteService.get(noteId)
+   noteService.get(noteId)
    .then(note => {
     console.log(note)
     this.note = note})
@@ -40,7 +40,7 @@ created() {
     save(ev) {
       console.log(ev);
       console.log(this.note);
-      NoteService.save(this.note)
+      noteService.save(this.note)
          .then(() => {
          console.log(this.note);
           this.$emit('SaveNewTxt' ,this.note) 
