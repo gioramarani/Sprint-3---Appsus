@@ -1,7 +1,7 @@
-import NoteTxt from '/NoteTxt.js'
-import NoteImg from '/NoteImg.js'
-import NoteVideo from '/NoteVideo.js'
-import NoteTodos from '/NoteTodos.js'
+import NoteTxt from '../NoteTxt.js'
+import NoteImg from '../NoteImg.js'
+import NoteVideo from '../NoteVideo.js'
+import NoteTodos from '../NoteTodos.js'
 
 export default {
   name:'NotePreview',
