@@ -1,5 +1,5 @@
-import MailSideBar from '/MailSideBar.js'
-import MailPreview from '/MailPreview.js'
+import MailSideBar from '../gmail/MailSideBar.js'
+import MailPreview from '../gmail/MailPreview.js'
 import { emailService } from '../../services/gmail/email.service.js'
 
 
