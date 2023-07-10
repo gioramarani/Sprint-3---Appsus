@@ -1,4 +1,3 @@
-import NoteDetails from '/NoteDetails.js'
 
 export default {
   name:'NoteTxt',
@@ -75,6 +74,5 @@ editTxt(newTxt){
    
   },
 components:{
-  NoteDetails,
 },
 }
