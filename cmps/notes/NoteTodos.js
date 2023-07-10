@@ -1,4 +1,3 @@
-import NoteDetails from '/NoteDetails.js'
 
 export default {
   name:'NoteTodos',
@@ -78,6 +77,6 @@ created() {},
     }
   },
 components:{
-  NoteDetails
+  
 },
 }
