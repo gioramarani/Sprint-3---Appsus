@@ -7,7 +7,7 @@ export default {
   template: `
 
             <section>
-              <h3>Pinned</h3>
+              <span class="pin-title">Pinned</span>
                 <ul class="note-list pinned-notes" >
                     <li  v-for="note in notes" :key="note.id">
                     <NotePreview 
@@ -19,7 +19,7 @@ export default {
                 </ul>
             </section>
             <section>
-            <h3>Unpinned</h3>
+            <span class="pin-title">Unpinned</span>
                 <ul class="note-list unpinned-notes" >
                     <li  v-for="note in notes" :key="note.id">
                     <NotePreview 

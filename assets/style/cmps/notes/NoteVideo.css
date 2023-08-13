@@ -6,3 +6,32 @@
     padding: 8px;
 
 }
+
+
+.note-video .delete {
+    right: 5%;
+    bottom: 2%;
+    position: absolute;
+}
+
+.note-video .pin {
+    right: 20%;
+    bottom: 2%;
+    position: absolute;
+}
+
+.note-video .img {
+    right: 35%;
+    bottom: 2%;
+    position: absolute;
+}
+
+.note-video span:hover {
+    cursor: pointer;
+    scale: 1.1;
+}
+
+.note-video .colorPicker {
+    cursor: pointer;
+    scale: 1.1;
+}

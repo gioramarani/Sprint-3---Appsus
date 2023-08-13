@@ -1,15 +1,34 @@
 .note-txt {
-    /* height: 20vh;
-    width: 20vw; */
-    /* background-color: pink; */
-    /* border: 1px solid black; */
+  
     padding: 8px;
 
 }
 
-.note-txt .blur {
-    filter: blur(20px);
-    background-color: aqua;
-    /* pointer-events: none; */
-    /* user-select: none; */
+
+.note-txt .delete {
+    right: 5%;
+    bottom: 2%;
+    position: absolute;
+}
+
+.note-txt .pin {
+    right: 20%;
+    bottom: 2%;
+    position: absolute;
+}
+
+.note-txt .img {
+    right: 35%;
+    bottom: 2%;
+    position: absolute;
+}
+
+.note-txt span:hover {
+    cursor: pointer;
+    scale: 1.1;
+}
+
+.note-txt .colorPicker {
+    cursor: pointer;
+    scale: 1.1;
 }

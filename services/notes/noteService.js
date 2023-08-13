@@ -2,7 +2,7 @@ import { utilService } from '../util.service.js'
 import { storageService } from '../async-storage.service.js'
 
 const NOTE_KEY = 'noteDB'
-const YT_KEY = ''
+// const YT_KEY = ''
 
 
 const gNotes = [
@@ -12,7 +12,7 @@ const gNotes = [
         type: 'NoteTxt',
         isPinned: true,
         style: {
-            backgroundColor: '#00d'
+            backgroundColor: ''
         },
         info: {
             title: 'Good Morning!',
@@ -28,7 +28,7 @@ const gNotes = [
             title: 'Bobi and Me'
         },
         style: {
-            backgroundColor: '#00d'
+            backgroundColor: ''
         }
     },
     {
@@ -40,7 +40,7 @@ const gNotes = [
             title: 'Bobi and Me'
         },
         style: {
-            backgroundColor: '#00d'
+            backgroundColor: ''
         }
     },
     {
@@ -61,7 +61,7 @@ const gNotes = [
         type: 'NoteTxt',
         isPinned: true,
         style: {
-            backgroundColor: '#00d'
+            backgroundColor: ''
         },
         info: {
             title: 'Chocolate!',
@@ -83,6 +83,9 @@ const gNotes = [
                 { txt: 'Beg for help from Tal', doneAt: 187111111 },
                 { txt: 'Fix all the 20 remained bugs!', doneAt: 187111111 }
             ]
+        },
+        style: {
+            backgroundColor: ''
         }
     },
     {
@@ -99,7 +102,7 @@ const gNotes = [
     },
 ]
 
-export const NoteService = {
+export const noteService = {
     query,
     get,
     remove,

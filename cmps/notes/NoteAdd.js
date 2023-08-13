@@ -1,4 +1,4 @@
-import { NoteService } from "../../services/notes/noteService.js"
+import { noteService } from "../../services/notes/noteService.js"
 
 export default {
   name: 'NoteAdd',
@@ -38,7 +38,7 @@ export default {
   created() { },
   data() {
     return {
-      newNote: NoteService.getEmptyNote(),
+      newNote: noteService.getEmptyNote(),
       title: '',
       txt: '',
       type: '',
@@ -55,11 +55,11 @@ export default {
   methods: {
     
     onUploadImg(ev) {
-      NoteService.createImg(ev)
+      noteService.createImg(ev)
         .then(url => this.imgUrl = url)
     },
     onUploadVideo() {
-      NoteService.getYoutubeResults()
+      noteService.getYoutubeResults()
       // something//
     },
    
@@ -82,6 +82,9 @@ export default {
             title: this.txt,
             url: this.imgUrl,
           },
+          style: {
+            backgroundColor: ''
+          },
           createdAt: this.createdAt,
           isPinned: this.isPinned,
         }
@@ -91,6 +94,9 @@ export default {
           info: {
             title: this.title,
             url: this.videoUrl,
+          },
+          style: {
+            backgroundColor: ''
           },
           createdAt: this.createdAt,
           isPinned: this.isPinned,
@@ -105,7 +111,7 @@ export default {
           createdAt: this.createdAt,
           isPinned: this.isPinned,
           style: {
-            backgroundColor: this.backgroundColor
+            backgroundColor: ''
         },
         }
       } else {
@@ -118,7 +124,7 @@ export default {
           createdAt: this.createdAt,
           isPinned: this.isPinned,
           style: {
-            backgroundColor: this.backgroundColor
+            backgroundColor: ''
         },
         }
       }

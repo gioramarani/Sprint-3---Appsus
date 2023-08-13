@@ -10,8 +10,7 @@
 
     border: 1px solid lightgray;
     border-radius: 10px;
-    height: 160px;
-    height: max-content;
+    min-height: max-content;
     width: 20vw;
     transition: 200ms;
     padding: 10px;
@@ -20,27 +19,4 @@
 
 .rendered-note:hover {
     box-shadow: 1px 1px 5px 1px gray;
-}
-
-.note-preview .delete {
-    right: 5%;
-    bottom: 2%;
-    position: absolute;
-}
-
-.note-preview .pin {
-    right: 20%;
-    bottom: 2%;
-    position: absolute;
-}
-
-/* .note-preview .pin {
-    right: 20%;
-    bottom: 2%;
-    position: absolute;
-} */
-
-.note-preview span:hover {
-    cursor: pointer;
-    scale: 1.1;
 }

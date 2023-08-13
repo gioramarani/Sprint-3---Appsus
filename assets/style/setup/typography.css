@@ -7,7 +7,7 @@
 }
 @font-face {
   font-family: roboto;
-  src: url("/fonts/Roboto-Regular.ttf");
+  src: url("fonts/Roboto-Regular.ttf");
 }
 
 
@@ -15,6 +15,8 @@
     --clr1: #feefc3;  
     /* onClick noteSideBar */
     --clr2: #f1f3f4;
-    /* not-search-bar */
+    /* note-search-bar */
+    --clr3: #5f6368;
+    /* pinned/unpinned titles */
 
 }

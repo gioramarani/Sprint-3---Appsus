@@ -9,3 +9,32 @@
 .note-img img {
     height: 70%;
 }
+
+
+.note-img .delete {
+    right: 5%;
+    bottom: 2%;
+    position: absolute;
+}
+
+.note-img .pin {
+    right: 20%;
+    bottom: 2%;
+    position: absolute;
+}
+
+.note-img .img {
+    right: 35%;
+    bottom: 2%;
+    position: absolute;
+}
+
+.note-img span:hover {
+    cursor: pointer;
+    scale: 1.1;
+}
+
+.note-img .colorPicker {
+    cursor: pointer;
+    scale: 1.1;
+}

@@ -3,7 +3,8 @@ export default {
   props: ['notes'],
   template: `
             <form class="note-filter" >
-                <input type="text" placeholder="Search" @click="onFilterBy" />
+                <input v-model="filterBy.txt" type="text" placeholder="Search"
+                @input="onSetFilterBy" @click="onFilterBy" />
                 <span class="material-symbols-outlined search-btn">
                 search
                 </span>
@@ -12,16 +13,16 @@ export default {
             <!-- then the filter option types are not a modal, and are the page -->
             <article v-if="(filterByModal)" class="filter-by-modal">
                 <h2>Types</h2>
-                <button @click="filterBy(notes,'Txt')">
+                <button @click="filterByType('Txt')">
                 <span class="material-symbols-outlined">article</span>Text Notes</button>
                 
-                <button @click="filterBy(notes,'Todos')">
+                <button @click="filterByType('Todos')">
                 <span class="material-symbols-outlined">edit_note</span>Todo Lists</button>
                 
-                <button @click="filterBy(notes,'Img')">
+                <button @click="filterByType('Img')">
                 <span class="material-symbols-outlined">image</span>Images</button>
                 
-                <button @click="filterBy(notes,'Video')">
+                <button @click="filterByType('Video')">
                 <span class="material-symbols-outlined">play_circle</span>Videos</button>
 
             </article>
@@ -31,17 +32,27 @@ created() {},
     return {
         filterByModal: false,
         filteredNotes: [],
+        filterBy: {
+            txt: '',
+            type: ''
+        }
     }
   },
   methods: {
         onFilterBy() {
             this.filterByModal= !this.filterByModal
         },
-        filterBy(unFilteredNotes ,type) {
-            console.log(unFilteredNotes)
-            console.log(type)
-            this.filteredNotes = unFilteredNotes.filter(note => note.type === `Note${type}`)
-            console.log(this.filteredNotes)
+        // filterBy(unFilteredNotes ,type) {
+        //     console.log(unFilteredNotes)
+        //     console.log(type)
+        //     this.filteredNotes = unFilteredNotes.filter(note => note.type === `Note${type}`)
+        //     console.log(this.filteredNotes)
+        // },
+        filterByType(type) {
+            this.filterBy.type = type
+        },
+        onSetFilterBy() {
+            this.$emit('filter', this.filterBy)
         }
   },
   computed: {},

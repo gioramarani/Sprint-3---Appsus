@@ -1,4 +1,4 @@
-import { NoteService } from '../../services/notes/noteService.js'
+import { noteService } from '../../services/notes/noteService.js'
 // import { showSuccessMsg, showErrorMsg } from '../services/event-bus.service.js'
 
 
@@ -17,14 +17,14 @@ export default {
             <NoteSideBar/>
             <NoteFilter
             :notes="notes"
-            
+            @filter="setFilterBy"
             />
             <NoteAdd
             @create="saveNewNote"
             />
 
             <NoteList
-            :notes="notes"
+            :notes="filteredNotes"
             @remove="removeNote"
             />
 
@@ -33,7 +33,7 @@ export default {
         </section>
         `,
     created() {
-            NoteService.query()
+            noteService.query()
             .then(notes => {
                 this.notes = notes
            })
@@ -42,6 +42,7 @@ export default {
     data() {
         return {
             notes: [],
+            filterBy: {},
         }
     },
     methods: {
@@ -49,7 +50,7 @@ export default {
             // note.info.txt = txt
             // note.type = type
             // console.log(note)
-            NoteService.save(note)
+            noteService.save(note)
                 .then(savedNote => {
                     this.notes.push(savedNote)
                     console.log(this.notes)
@@ -60,7 +61,7 @@ export default {
             //         console.log(this.notes)
         },
         removeNote(noteId) {
-            NoteService.remove(noteId)
+            noteService.remove(noteId)
                 .then(() => {
                     const idx = this.notes.findIndex(note => note.id === noteId)
                     this.notes.splice(idx, 1)
@@ -73,15 +74,29 @@ export default {
                     this.notes.splice(idx, 1)
                 })
         },
-        filterNotesBy(type) {
-            console.log(type)
-            // return this.notes.filter(note => note.type === type)
-        }
+        setFilterBy(filterBy) {
+            console.log(filterBy);
+            this.filterBy = filterBy
+        },
     },
     computed: {
         getNotes() {
             return this.notes
         },
+        filteredNotes() {
+            var filteredNotes = this.notes
+            const regex = new RegExp(this.filterBy.txt, 'i')
+            filteredNotes = filteredNotes.filter(note => regex.test(note.info.title))
+
+            if(this.filterBy.type){
+            filteredNotes = filteredNotes.filter(note => note.type === this.filterBy.type)
+            }
+            // if(this.filterBy.isPinned){
+            //     filteredNotes = filteredNotes.filter(note => note.isPinned === this.filterBy.isPinned)
+            // }
+
+            return filteredNotes 
+        }
     },
     components: {
         NoteList,
