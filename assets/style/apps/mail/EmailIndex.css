@@ -12,6 +12,7 @@
   flex-direction: row;
   align-items: flex-start;
   gap: 0.25em;
+  display: flex;
 }
 
 .mail-index ul {
