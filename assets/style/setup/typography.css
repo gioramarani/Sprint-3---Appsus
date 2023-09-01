@@ -3,11 +3,11 @@
 
 @font-face {
   font-family: opensans;
-  src: url("../../fonts/OpenSans-Regular.ttf");
+  src: url("../../../fonts/OpenSans-Regular.ttf");
 }
 @font-face {
   font-family: roboto;
-  src: url("../../fonts/Roboto-Regular.ttf");
+  src: url("../../../fonts/Roboto-Regular.ttf");
 }
 
 :root {
